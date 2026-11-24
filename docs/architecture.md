@@ -3,6 +3,8 @@
 Deux couches : le **moteur** (`engine/`) ne connaît ni sessions ni rôles ; la **plateforme** (`api/`) les ajoute
 autour de lui. Voir `docs/fusion.md` pour l'origine de chaque pièce.
 
+> Les diagrammes complets (UML, séquences, états, données, frontières de confiance) sont dans [`diagrams.md`](diagrams.md).
+
 ## Vue d'ensemble
 
 ```mermaid

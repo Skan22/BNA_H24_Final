@@ -16,7 +16,7 @@ PORT_WEB   ?= 3000
 
 .DEFAULT_GOAL := help
 .PHONY: help install kit contracts calibrate eval eval-private redteam test \
-	    mocks api web demo demo-offline clean verify-kit all docker-up e2e film probe livrables llm-check
+	    mocks api web demo demo-offline clean verify-kit all docker-up e2e film probe livrables llm-check shots
 
 help: ## Afficher cette aide
 	@grep -hE '^[a-z-]+:.*?## ' $(MAKEFILE_LIST) | \
@@ -92,6 +92,9 @@ e2e: ## Parcours navigateur + accessibilité (pile en marche) ; CHROMIUM_PATH=/u
 film: ## Enregistre la démonstration filmée (pile en marche) -> artifacts/BNA_H24_demo.webm
 	cd web && npx playwright test -c playwright.demo.config.ts
 	$(PY) tools/collect_film.py
+
+shots: ## Captures d'écran du README (pile en marche) -> docs/img/*.png
+	cd web && npx playwright test -c playwright.shots.config.ts
 
 probe: ## Sonde adversariale hors suite : jeu de réglage puis jeu réservé
 	$(PY) eval/probe.py
