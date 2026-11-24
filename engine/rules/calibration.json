@@ -1,0 +1,38 @@
+{
+  "source": "kit/scenarios/public",
+  "n_observations": 181,
+  "methode": "fréquence de justesse du top-1 par tranche de score brut",
+  "note": "Calibré sur le jeu PUBLIC uniquement. Le jeu privé reste non vu.",
+  "bins": [
+    [
+      0.0,
+      0.5,
+      0.25
+    ],
+    [
+      0.5,
+      0.65,
+      0.575
+    ],
+    [
+      0.65,
+      0.75,
+      0.7
+    ],
+    [
+      0.75,
+      0.85,
+      0.86
+    ],
+    [
+      0.85,
+      0.95,
+      1.0
+    ],
+    [
+      0.95,
+      1.01,
+      1.0
+    ]
+  ]
+}

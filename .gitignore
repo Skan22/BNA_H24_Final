@@ -1,0 +1,37 @@
+# Secrets : jamais committés (le modèle est .env.example)
+.env
+.env.*
+!.env.example
+
+# Environnements et dépendances
+.venv/
+node_modules/
+web/.next/
+web/next-env.d.ts
+*.tsbuildinfo
+
+# Caches Python et outils
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Bases locales (recréées au démarrage)
+*.db
+*.db-journal
+*.sqlite3
+
+# Sorties Playwright brutes (la vidéo finale artifacts/BNA_H24_demo.webm, elle, est un livrable versionné)
+web/test-results/
+web/playwright-report/
+artifacts/film/
+
+# Enregistrements de modèle locaux
+engine/llm/cassettes/*.json
+
+# Système, éditeurs
+.DS_Store
+.idea/
+.vscode/
+*.log

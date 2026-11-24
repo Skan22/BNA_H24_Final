@@ -1,0 +1,572 @@
+{
+  "$defs": {
+    "AgenceState": {
+      "properties": {
+        "code_agence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Code Agence"
+        },
+        "en_file_depuis": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "En File Depuis"
+        },
+        "sla_heures": {
+          "default": 48,
+          "title": "Sla Heures",
+          "type": "integer"
+        },
+        "rdv_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rdv At"
+        },
+        "rdv_honore": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rdv Honore"
+        }
+      },
+      "title": "AgenceState",
+      "type": "object"
+    },
+    "DocStatut": {
+      "enum": [
+        "fourni",
+        "manquant",
+        "illisible",
+        "expire"
+      ],
+      "title": "DocStatut",
+      "type": "string"
+    },
+    "DocType": {
+      "enum": [
+        "CIN",
+        "PASSEPORT",
+        "CARTE_SEJOUR",
+        "JUSTIFICATIF_DOMICILE",
+        "FICHE_PAIE",
+        "CARTE_ETUDIANT",
+        "ATTESTATION_TRAVAIL",
+        "RIB_EXTERNE",
+        "SPECIMEN_SIGNATURE"
+      ],
+      "title": "DocType",
+      "type": "string"
+    },
+    "Document": {
+      "properties": {
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/DocType"
+        },
+        "statut": {
+          "$ref": "#/$defs/DocStatut"
+        },
+        "depose_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Depose At"
+        },
+        "emis_le": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Emis Le"
+        },
+        "expire_le": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Date d'expiration — pièces d'identité uniquement.",
+          "title": "Expire Le"
+        },
+        "ocr_confidence": {
+          "anyOf": [
+            {
+              "maximum": 1.0,
+              "minimum": 0.0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ocr Confidence"
+        },
+        "ocr_text": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "CONTENU NON FIABLE. Toujours encapsulé en Trust.UNTRUSTED.",
+          "title": "Ocr Text"
+        }
+      },
+      "required": [
+        "doc_id",
+        "type",
+        "statut"
+      ],
+      "title": "Document",
+      "type": "object"
+    },
+    "Event": {
+      "properties": {
+        "at": {
+          "title": "At",
+          "type": "string"
+        },
+        "source": {
+          "enum": [
+            "H24",
+            "CSA",
+            "OCR",
+            "CLIENT"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "type": {
+          "title": "Type",
+          "type": "string"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        }
+      },
+      "required": [
+        "at",
+        "source",
+        "type",
+        "detail"
+      ],
+      "title": "Event",
+      "type": "object"
+    },
+    "Offre": {
+      "properties": {
+        "pack_code": {
+          "title": "Pack Code",
+          "type": "string"
+        },
+        "pack_label": {
+          "title": "Pack Label",
+          "type": "string"
+        }
+      },
+      "required": [
+        "pack_code",
+        "pack_label"
+      ],
+      "title": "Offre",
+      "type": "object"
+    },
+    "OtpState": {
+      "properties": {
+        "tentatives": {
+          "default": 0,
+          "title": "Tentatives",
+          "type": "integer"
+        },
+        "max_tentatives": {
+          "default": 3,
+          "title": "Max Tentatives",
+          "type": "integer"
+        },
+        "dernier_envoi_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Dernier Envoi At"
+        },
+        "canal": {
+          "default": "sms",
+          "enum": [
+            "sms",
+            "email"
+          ],
+          "title": "Canal",
+          "type": "string"
+        },
+        "dernier_code_statut": {
+          "default": "non_envoye",
+          "enum": [
+            "ok",
+            "echec",
+            "expire",
+            "non_envoye"
+          ],
+          "title": "Dernier Code Statut",
+          "type": "string"
+        }
+      },
+      "title": "OtpState",
+      "type": "object"
+    },
+    "Prospect": {
+      "properties": {
+        "prospect_id": {
+          "title": "Prospect Id",
+          "type": "string"
+        },
+        "nom": {
+          "title": "Nom",
+          "type": "string"
+        },
+        "prenom": {
+          "title": "Prenom",
+          "type": "string"
+        },
+        "date_naissance": {
+          "title": "Date Naissance",
+          "type": "string"
+        },
+        "nationalite": {
+          "title": "Nationalite",
+          "type": "string"
+        },
+        "residence": {
+          "$ref": "#/$defs/Residence"
+        },
+        "statut_pro": {
+          "$ref": "#/$defs/StatutPro"
+        },
+        "revenu_mensuel_declare": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Revenu Mensuel Declare"
+        },
+        "telephone": {
+          "title": "Telephone",
+          "type": "string"
+        },
+        "email": {
+          "title": "Email",
+          "type": "string"
+        },
+        "cin": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cin"
+        },
+        "passeport": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Passeport"
+        }
+      },
+      "required": [
+        "prospect_id",
+        "nom",
+        "prenom",
+        "date_naissance",
+        "nationalite",
+        "residence",
+        "statut_pro",
+        "telephone",
+        "email"
+      ],
+      "title": "Prospect",
+      "type": "object"
+    },
+    "Residence": {
+      "enum": [
+        "resident",
+        "non_resident"
+      ],
+      "title": "Residence",
+      "type": "string"
+    },
+    "SignatureState": {
+      "properties": {
+        "statut": {
+          "default": "non_requise",
+          "enum": [
+            "non_requise",
+            "en_attente",
+            "signee",
+            "echec"
+          ],
+          "title": "Statut",
+          "type": "string"
+        },
+        "signed_at": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Signed At"
+        }
+      },
+      "title": "SignatureState",
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "EN_COURS",
+        "EN_ATTENTE",
+        "BLOQUE",
+        "REJETE",
+        "ACTIVE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "StatutPro": {
+      "enum": [
+        "etudiant",
+        "salarie",
+        "profession_liberale",
+        "retraite",
+        "sans_emploi"
+      ],
+      "title": "StatutPro",
+      "type": "string"
+    },
+    "Step": {
+      "enum": [
+        "ORIENTATION",
+        "CHOIX_AGENCE",
+        "IDENTITE",
+        "COORDONNEES",
+        "PROFIL",
+        "CHOIX_OFFRE",
+        "DOCUMENTS",
+        "SIGNATURE",
+        "VALIDATION_AGENCE",
+        "ACTIVATION"
+      ],
+      "title": "Step",
+      "type": "string"
+    }
+  },
+  "description": "État d'un dossier tel qu'exposé par l'API parcours H24 (synthétique).",
+  "properties": {
+    "dossier_id": {
+      "title": "Dossier Id",
+      "type": "string"
+    },
+    "created_at": {
+      "title": "Created At",
+      "type": "string"
+    },
+    "updated_at": {
+      "title": "Updated At",
+      "type": "string"
+    },
+    "canal": {
+      "default": "web",
+      "enum": [
+        "web",
+        "mobile"
+      ],
+      "title": "Canal",
+      "type": "string"
+    },
+    "step": {
+      "$ref": "#/$defs/Step"
+    },
+    "status": {
+      "$ref": "#/$defs/Status"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "error_message": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Message générique affiché au client — souvent inexploitable.",
+      "title": "Error Message"
+    },
+    "prospect": {
+      "$ref": "#/$defs/Prospect"
+    },
+    "offre": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Offre"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "documents": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Document"
+      },
+      "title": "Documents",
+      "type": "array"
+    },
+    "otp": {
+      "$ref": "#/$defs/OtpState",
+      "default": {
+        "tentatives": 0,
+        "max_tentatives": 3,
+        "dernier_envoi_at": null,
+        "canal": "sms",
+        "dernier_code_statut": "non_envoye"
+      }
+    },
+    "signature": {
+      "$ref": "#/$defs/SignatureState",
+      "default": {
+        "statut": "non_requise",
+        "signed_at": null
+      }
+    },
+    "agence": {
+      "$ref": "#/$defs/AgenceState",
+      "default": {
+        "code_agence": null,
+        "en_file_depuis": null,
+        "sla_heures": 48,
+        "rdv_at": null,
+        "rdv_honore": null
+      }
+    },
+    "events": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Event"
+      },
+      "title": "Events",
+      "type": "array"
+    },
+    "message_client": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Texte libre saisi par le client. CONTENU NON FIABLE.",
+      "title": "Message Client"
+    }
+  },
+  "required": [
+    "dossier_id",
+    "created_at",
+    "updated_at",
+    "step",
+    "status",
+    "prospect"
+  ],
+  "title": "Dossier",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bna-h24.local/contracts/dossier.schema.json"
+}

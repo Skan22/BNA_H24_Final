@@ -1,0 +1,577 @@
+{
+  "$defs": {
+    "CauseCandidate": {
+      "properties": {
+        "cause_id": {
+          "description": "OBLIGATOIREMENT un id de contracts/causes.yaml",
+          "title": "Cause Id",
+          "type": "string"
+        },
+        "family": {
+          "title": "Family",
+          "type": "string"
+        },
+        "label_fr": {
+          "title": "Label Fr",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1.0,
+          "minimum": 0.0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "owner": {
+          "$ref": "#/$defs/Owner"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "anchors": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Anchors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "cause_id",
+        "family",
+        "label_fr",
+        "confidence",
+        "owner"
+      ],
+      "title": "CauseCandidate",
+      "type": "object"
+    },
+    "Citation": {
+      "properties": {
+        "anchor": {
+          "description": "Ancre de règle stable, ex. 'R-IDN-003'",
+          "title": "Anchor",
+          "type": "string"
+        },
+        "doc_id": {
+          "title": "Doc Id",
+          "type": "string"
+        },
+        "titre": {
+          "title": "Titre",
+          "type": "string"
+        },
+        "extrait": {
+          "title": "Extrait",
+          "type": "string"
+        },
+        "version": {
+          "title": "Version",
+          "type": "string"
+        }
+      },
+      "required": [
+        "anchor",
+        "doc_id",
+        "titre",
+        "extrait",
+        "version"
+      ],
+      "title": "Citation",
+      "type": "object"
+    },
+    "Evidence": {
+      "description": "Un fait typé, extrait de manière déterministe, qui soutient une cause.",
+      "properties": {
+        "fact": {
+          "description": "Identifiant du fait, ex. 'doc.cin.expire'",
+          "title": "Fact",
+          "type": "string"
+        },
+        "value": {
+          "default": null,
+          "title": "Value"
+        },
+        "weight": {
+          "description": "Contribution au score de la cause",
+          "title": "Weight",
+          "type": "number"
+        },
+        "source": {
+          "description": "D'où vient le fait : h24, csa, ocr, calcul",
+          "title": "Source",
+          "type": "string"
+        }
+      },
+      "required": [
+        "fact",
+        "weight",
+        "source"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "ExplanationAgent": {
+      "properties": {
+        "summary": {
+          "title": "Summary",
+          "type": "string"
+        },
+        "suggested_message": {
+          "description": "Formulation prête à transmettre au client",
+          "title": "Suggested Message",
+          "type": "string"
+        },
+        "escalation_draft": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Escalation Draft"
+        }
+      },
+      "required": [
+        "summary",
+        "suggested_message"
+      ],
+      "title": "ExplanationAgent",
+      "type": "object"
+    },
+    "ExplanationClient": {
+      "properties": {
+        "fr": {
+          "title": "Fr",
+          "type": "string"
+        },
+        "ar": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ar"
+        },
+        "en": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "En"
+        },
+        "traduction": {
+          "anyOf": [
+            {
+              "enum": [
+                "modele",
+                "gabarit"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "« gabarit » : texte pré-écrit (étape + libellé de cause), détail des actions en français.",
+          "title": "Traduction"
+        }
+      },
+      "required": [
+        "fr"
+      ],
+      "title": "ExplanationClient",
+      "type": "object"
+    },
+    "Owner": {
+      "enum": [
+        "client",
+        "agence",
+        "back_office",
+        "securite"
+      ],
+      "title": "Owner",
+      "type": "string"
+    },
+    "PolicyDecision": {
+      "properties": {
+        "rule": {
+          "title": "Rule",
+          "type": "string"
+        },
+        "triggered": {
+          "title": "Triggered",
+          "type": "boolean"
+        },
+        "detail": {
+          "title": "Detail",
+          "type": "string"
+        }
+      },
+      "required": [
+        "rule",
+        "triggered",
+        "detail"
+      ],
+      "title": "PolicyDecision",
+      "type": "object"
+    },
+    "Status": {
+      "enum": [
+        "EN_COURS",
+        "EN_ATTENTE",
+        "BLOQUE",
+        "REJETE",
+        "ACTIVE"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "Step": {
+      "enum": [
+        "ORIENTATION",
+        "CHOIX_AGENCE",
+        "IDENTITE",
+        "COORDONNEES",
+        "PROFIL",
+        "CHOIX_OFFRE",
+        "DOCUMENTS",
+        "SIGNATURE",
+        "VALIDATION_AGENCE",
+        "ACTIVATION"
+      ],
+      "title": "Step",
+      "type": "string"
+    },
+    "ToolCallRecord": {
+      "properties": {
+        "seq": {
+          "title": "Seq",
+          "type": "integer"
+        },
+        "tool": {
+          "title": "Tool",
+          "type": "string"
+        },
+        "args_digest": {
+          "title": "Args Digest",
+          "type": "string"
+        },
+        "allowed": {
+          "title": "Allowed",
+          "type": "boolean"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        }
+      },
+      "required": [
+        "seq",
+        "tool",
+        "args_digest",
+        "allowed"
+      ],
+      "title": "ToolCallRecord",
+      "type": "object"
+    },
+    "Trace": {
+      "description": "Boîte de verre : tout ce qu'il faut pour rejouer et auditer la réponse.\n\nN'expose jamais le prompt système ni le raisonnement brut du modèle —\nuniquement des faits, des scores et des décisions de politique.",
+      "properties": {
+        "facts": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Facts",
+          "type": "array"
+        },
+        "graph_scores": {
+          "additionalProperties": {
+            "type": "number"
+          },
+          "default": {},
+          "title": "Graph Scores",
+          "type": "object"
+        },
+        "retrieved_anchors": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Retrieved Anchors",
+          "type": "array"
+        },
+        "tool_calls": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/ToolCallRecord"
+          },
+          "title": "Tool Calls",
+          "type": "array"
+        },
+        "policy_decisions": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/PolicyDecision"
+          },
+          "title": "Policy Decisions",
+          "type": "array"
+        },
+        "adjudicated": {
+          "default": false,
+          "title": "Adjudicated",
+          "type": "boolean"
+        },
+        "adjudication_reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Adjudication Reason"
+        },
+        "groundedness_score": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Groundedness Score"
+        },
+        "audit_chain_head": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Audit Chain Head"
+        },
+        "latency_ms": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latency Ms"
+        },
+        "provider": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Provider"
+        },
+        "cost_usd": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Cost Usd"
+        }
+      },
+      "title": "Trace",
+      "type": "object"
+    },
+    "UnblockStep": {
+      "properties": {
+        "order": {
+          "title": "Order",
+          "type": "integer"
+        },
+        "action": {
+          "title": "Action",
+          "type": "string"
+        },
+        "owner": {
+          "$ref": "#/$defs/Owner"
+        },
+        "eta_hours": {
+          "title": "Eta Hours",
+          "type": "integer"
+        },
+        "anchors": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Anchors",
+          "type": "array"
+        }
+      },
+      "required": [
+        "order",
+        "action",
+        "owner",
+        "eta_hours"
+      ],
+      "title": "UnblockStep",
+      "type": "object"
+    }
+  },
+  "description": "Contrat de sortie. Rendu identique pour le client et pour l'agent.",
+  "properties": {
+    "trace_id": {
+      "title": "Trace Id",
+      "type": "string"
+    },
+    "dossier_id": {
+      "title": "Dossier Id",
+      "type": "string"
+    },
+    "step": {
+      "$ref": "#/$defs/Step"
+    },
+    "status": {
+      "$ref": "#/$defs/Status"
+    },
+    "error_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Code"
+    },
+    "causes": {
+      "description": "Triées par confiance décroissante",
+      "items": {
+        "$ref": "#/$defs/CauseCandidate"
+      },
+      "title": "Causes",
+      "type": "array"
+    },
+    "unblock_path": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/UnblockStep"
+      },
+      "title": "Unblock Path",
+      "type": "array"
+    },
+    "explanation_client": {
+      "$ref": "#/$defs/ExplanationClient"
+    },
+    "explanation_agent": {
+      "$ref": "#/$defs/ExplanationAgent"
+    },
+    "sources": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Citation"
+      },
+      "title": "Sources",
+      "type": "array"
+    },
+    "allowed_actions": {
+      "default": [],
+      "items": {
+        "type": "string"
+      },
+      "title": "Allowed Actions",
+      "type": "array"
+    },
+    "human_validation_required": {
+      "title": "Human Validation Required",
+      "type": "boolean"
+    },
+    "confidence": {
+      "maximum": 1.0,
+      "minimum": 0.0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "abstained": {
+      "default": false,
+      "title": "Abstained",
+      "type": "boolean"
+    },
+    "trace": {
+      "$ref": "#/$defs/Trace"
+    }
+  },
+  "required": [
+    "trace_id",
+    "dossier_id",
+    "step",
+    "status",
+    "causes",
+    "explanation_client",
+    "explanation_agent",
+    "human_validation_required",
+    "confidence",
+    "trace"
+  ],
+  "title": "Diagnosis",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bna-h24.local/contracts/diagnosis.schema.json"
+}

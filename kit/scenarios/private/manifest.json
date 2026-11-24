@@ -1,0 +1,13 @@
+{
+  "split": "private",
+  "seed": 1337,
+  "prefix": "PRV",
+  "generated_for_date": "2026-09-26",
+  "n_dossiers": 133,
+  "n_causes": 37,
+  "repeats_par_cause": 3,
+  "n_variantes_difficiles": 22,
+  "taux_code_generique": 0.489,
+  "sha256_dossiers": "e4e04b064597ba1e",
+  "note": "Données 100% synthétiques. ground_truth.json n'est jamais lu par le moteur."
+}

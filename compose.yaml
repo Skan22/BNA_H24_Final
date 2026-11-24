@@ -1,0 +1,70 @@
+x-env: &env
+  DATABASE_URL: postgresql+psycopg://boussola:boussola-local-only@db:5432/boussola
+  BOUSSOLA_PORT: http
+  BOUSSOLA_H24: http://h24-mock:8001
+  BOUSSOLA_CSA: http://csa-mock:8002
+  BOUSSOLA_MOCK_KEY: ${BOUSSOLA_MOCK_KEY:-local-mock-change-me}
+  AGENT_PASSWORD: ${AGENT_PASSWORD:-agent-demo-change-me}
+  CLIENT_PASSWORD: ${CLIENT_PASSWORD:-client-demo-change-me}
+  EVALUATOR_TOKEN: ${EVALUATOR_TOKEN:-local-evaluator-change-me}
+  COOKIE_SECURE: ${COOKIE_SECURE:-false}
+  DEMO_MODE: ${DEMO_MODE:-true}
+
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: boussola
+      POSTGRES_PASSWORD: boussola-local-only
+      POSTGRES_DB: boussola
+    volumes: [boussola-db:/var/lib/postgresql/data]
+    healthcheck:
+      test: [CMD-SHELL, "pg_isready -U boussola"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  h24-mock:
+    build: .
+    environment: *env
+    command: [uvicorn, "services.mock_h24.app:app", --host, 0.0.0.0, --port, "8001"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request,sys;urllib.request.urlopen('http://127.0.0.1:'+sys.argv[1]+'/health')", "8001"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  csa-mock:
+    build: .
+    environment: *env
+    command: [uvicorn, "services.mock_csa.app:app", --host, 0.0.0.0, --port, "8002"]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request,sys;urllib.request.urlopen('http://127.0.0.1:'+sys.argv[1]+'/health')", "8002"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+  api:
+    build: .
+    # Seul le service API parle au modèle. Sans GROQ_API_KEY, BOUSSOLA_LLM reste « none » : démonstration 100 % hors ligne.
+    environment:
+      <<: *env
+      BOUSSOLA_LLM: ${BOUSSOLA_LLM:-none}
+      GROQ_API_KEY: ${GROQ_API_KEY:-}
+      GROQ_MODEL_STRONG: ${GROQ_MODEL_STRONG:-openai/gpt-oss-120b}
+      GROQ_MODEL_FAST: ${GROQ_MODEL_FAST:-openai/gpt-oss-20b}
+    ports: ["127.0.0.1:8000:8000"]
+    depends_on:
+      db: {condition: service_healthy}
+      h24-mock: {condition: service_healthy}
+      csa-mock: {condition: service_healthy}
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    restart: on-failure
+  web:
+    build: ./web
+    ports: ["127.0.0.1:3000:3000"]
+    depends_on:
+      api: {condition: service_healthy}
+volumes:
+  boussola-db:

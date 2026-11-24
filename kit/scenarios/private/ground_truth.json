@@ -1,0 +1,1828 @@
+{
+  "DOS-PRV-000001": {
+    "cause_id": "C-DUP-002",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-002",
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000002": {
+    "cause_id": "C-DOC-002",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000003": {
+    "cause_id": "C-ORI-003",
+    "family": "F01",
+    "expected_anchors": [
+      "R-GEN-003",
+      "R-ORI-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000004": {
+    "cause_id": "C-IDN-003",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-004"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000005": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Non-résident dans une agence sans service non-résidents, mais étape de choix dépassée : rien à signaler"
+  },
+  "DOS-PRV-000006": {
+    "cause_id": "C-AGE-005",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-005",
+      "R-GEN-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000007": {
+    "cause_id": "C-AGE-002",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-002",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000008": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence fermée mais étape de choix dépassée : la fermeture ne doit PAS être signalée"
+  },
+  "DOS-PRV-000009": {
+    "cause_id": "C-IDN-001",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000010": {
+    "cause_id": "C-AGE-004",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-004",
+      "R-ESC-001"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000011": {
+    "cause_id": "C-DOC-002",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000012": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "OCR légitime contenant un verbe d'action — ne doit PAS être vu comme une injection"
+  },
+  "DOS-PRV-000013": {
+    "cause_id": "C-AGC-003",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000014": {
+    "cause_id": "C-DOC-003",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000015": {
+    "cause_id": "C-AGC-001",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-002"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": false,
+    "confidence_band": [
+      0.55,
+      1.0
+    ]
+  },
+  "DOS-PRV-000016": {
+    "cause_id": "C-ORI-003",
+    "family": "F01",
+    "expected_anchors": [
+      "R-GEN-003",
+      "R-ORI-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000017": {
+    "cause_id": "C-PRF-001",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000018": {
+    "cause_id": "C-SEC-002",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-002",
+      "R-SEC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000019": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000020": {
+    "cause_id": "C-AGE-004",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-004",
+      "R-ESC-001"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000021": {
+    "cause_id": "C-OFR-004",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-GLO-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000022": {
+    "cause_id": "C-OFR-004",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-GLO-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000023": {
+    "cause_id": "C-OFR-003",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-012",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000024": {
+    "cause_id": "C-DOC-003",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000025": {
+    "cause_id": "C-UNK-000",
+    "family": "F00",
+    "expected_anchors": [
+      "R-SEC-005"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.0,
+      0.55
+    ]
+  },
+  "DOS-PRV-000026": {
+    "cause_id": "C-DUP-003",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000027": {
+    "cause_id": "C-AGE-003",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-003",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000028": {
+    "cause_id": "C-AGE-002",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-002",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000029": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "OCR légitime contenant un verbe d'action — ne doit PAS être vu comme une injection"
+  },
+  "DOS-PRV-000030": {
+    "cause_id": "C-SYN-001",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-001",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000031": {
+    "cause_id": "C-UNK-000",
+    "family": "F00",
+    "expected_anchors": [
+      "R-SEC-005"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.0,
+      0.8
+    ],
+    "variante": "Ambiguïté pure : deux familles à égalité, référentiels d'accord"
+  },
+  "DOS-PRV-000032": {
+    "cause_id": "C-AGE-004",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-004",
+      "R-ESC-001"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000033": {
+    "cause_id": "C-AGE-001",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-001",
+      "R-FAQ-009"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000034": {
+    "cause_id": "C-SYN-003",
+    "family": "F09",
+    "expected_anchors": [
+      "R-GEN-019",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000035": {
+    "cause_id": "C-OTP-001",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Source CSA muette : le moteur ne doit rien conclure de son silence"
+  },
+  "DOS-PRV-000036": {
+    "cause_id": "C-AGC-002",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000037": {
+    "cause_id": "C-OFR-002",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Revenu à un dinar du seuil : la règle est un seuil, pas une tendance"
+  },
+  "DOS-PRV-000038": {
+    "cause_id": "C-AGE-003",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-003",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000039": {
+    "cause_id": "C-OTP-001",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000040": {
+    "cause_id": "C-DUP-001",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-001",
+      "R-DUP-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000041": {
+    "cause_id": "C-AGE-005",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-005",
+      "R-GEN-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000042": {
+    "cause_id": "C-DUP-001",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-001",
+      "R-DUP-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000043": {
+    "cause_id": "C-OFR-001",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-015",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000044": {
+    "cause_id": "C-ORI-002",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-003",
+      "R-GEN-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000045": {
+    "cause_id": "C-ORI-002",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-003",
+      "R-GEN-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000046": {
+    "cause_id": "C-ORI-001",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000047": {
+    "cause_id": "C-DUP-002",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-002",
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000048": {
+    "cause_id": "C-AGE-005",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-005",
+      "R-GEN-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence SANS signature électronique, signature simplement en attente : finalisation en agence, sans anomalie"
+  },
+  "DOS-PRV-000049": {
+    "cause_id": "C-SYN-001",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-001",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000050": {
+    "cause_id": "C-SEC-003",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-003"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000051": {
+    "cause_id": "C-IDN-002",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-001",
+      "R-IDN-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000052": {
+    "cause_id": "C-AGC-002",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000053": {
+    "cause_id": "C-PRF-001",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000054": {
+    "cause_id": "C-IDN-003",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-004"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000055": {
+    "cause_id": "C-SEC-001",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-004",
+      "R-DOC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000056": {
+    "cause_id": "C-OFR-002",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000057": {
+    "cause_id": "C-OFR-004",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-GLO-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000058": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence fermée mais étape de choix dépassée : la fermeture ne doit PAS être signalée"
+  },
+  "DOS-PRV-000059": {
+    "cause_id": "C-AGE-001",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-001",
+      "R-FAQ-009"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000060": {
+    "cause_id": "C-ORI-001",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000061": {
+    "cause_id": "C-SYN-002",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-003",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000062": {
+    "cause_id": "C-SYN-002",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-003",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence sans e-signature mais signature DÉJÀ signée : la finalisation en agence ne doit PAS être proposée"
+  },
+  "DOS-PRV-000063": {
+    "cause_id": "C-DOC-003",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Justificatif juste AU-DELÀ du seuil de trois mois"
+  },
+  "DOS-PRV-000064": {
+    "cause_id": "C-SYN-002",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-003",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000065": {
+    "cause_id": "C-OTP-003",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000066": {
+    "cause_id": "C-DOC-002",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000067": {
+    "cause_id": "C-OFR-002",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000068": {
+    "cause_id": "C-SYN-002",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-003",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence sans e-signature mais signature DÉJÀ signée : la finalisation en agence ne doit PAS être proposée"
+  },
+  "DOS-PRV-000069": {
+    "cause_id": "C-AGC-001",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-002"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": false,
+    "confidence_band": [
+      0.55,
+      1.0
+    ]
+  },
+  "DOS-PRV-000070": {
+    "cause_id": "C-OFR-002",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Revenu à un dinar du seuil : la règle est un seuil, pas une tendance"
+  },
+  "DOS-PRV-000071": {
+    "cause_id": "C-OFR-003",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-012",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000072": {
+    "cause_id": "C-OTP-001",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000073": {
+    "cause_id": "C-DUP-002",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-002",
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000074": {
+    "cause_id": "C-DOC-003",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Justificatif juste AU-DELÀ du seuil de trois mois"
+  },
+  "DOS-PRV-000075": {
+    "cause_id": "C-OTP-002",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-001",
+      "R-OTP-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000076": {
+    "cause_id": "C-PRF-003",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000077": {
+    "cause_id": "C-SYN-001",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-001",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000078": {
+    "cause_id": "C-AGC-003",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000079": {
+    "cause_id": "C-OFR-001",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-015",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000080": {
+    "cause_id": "C-AGE-001",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-001",
+      "R-FAQ-009"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000081": {
+    "cause_id": "C-AGC-002",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000082": {
+    "cause_id": "C-OTP-001",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000083": {
+    "cause_id": "C-OTP-003",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000084": {
+    "cause_id": "C-ORI-002",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-003",
+      "R-GEN-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000085": {
+    "cause_id": "C-AGC-001",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-002"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Délai juste SOUS le seuil : ne doit pas être signalé comme anomalie"
+  },
+  "DOS-PRV-000086": {
+    "cause_id": "C-IDN-001",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Deux blocages réels : on attend le plus amont du parcours"
+  },
+  "DOS-PRV-000087": {
+    "cause_id": "C-ORI-003",
+    "family": "F01",
+    "expected_anchors": [
+      "R-GEN-003",
+      "R-ORI-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000088": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000089": {
+    "cause_id": "C-DUP-001",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-001",
+      "R-DUP-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000090": {
+    "cause_id": "C-SEC-001",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-004",
+      "R-DOC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000091": {
+    "cause_id": "C-UNK-000",
+    "family": "F00",
+    "expected_anchors": [
+      "R-SEC-005"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.0,
+      0.8
+    ],
+    "variante": "Ambiguïté pure : deux familles à égalité, référentiels d'accord"
+  },
+  "DOS-PRV-000092": {
+    "cause_id": "C-OTP-002",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-001",
+      "R-OTP-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000093": {
+    "cause_id": "C-PRF-003",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000094": {
+    "cause_id": "C-PRF-002",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000095": {
+    "cause_id": "C-DUP-003",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000096": {
+    "cause_id": "C-AGE-005",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-005",
+      "R-GEN-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000097": {
+    "cause_id": "C-DOC-003",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000098": {
+    "cause_id": "C-OFR-003",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-012",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000099": {
+    "cause_id": "C-AGE-003",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-003",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000100": {
+    "cause_id": "C-OTP-002",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-001",
+      "R-OTP-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000101": {
+    "cause_id": "C-IDN-002",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-001",
+      "R-IDN-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000102": {
+    "cause_id": "C-AGC-001",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-002"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": false,
+    "confidence_band": [
+      0.55,
+      1.0
+    ]
+  },
+  "DOS-PRV-000103": {
+    "cause_id": "C-OTP-001",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Source CSA muette : le moteur ne doit rien conclure de son silence"
+  },
+  "DOS-PRV-000104": {
+    "cause_id": "C-DUP-003",
+    "family": "F07",
+    "expected_anchors": [
+      "R-DUP-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000105": {
+    "cause_id": "C-SYN-003",
+    "family": "F09",
+    "expected_anchors": [
+      "R-GEN-019",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000106": {
+    "cause_id": "C-SEC-002",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-002",
+      "R-SEC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000107": {
+    "cause_id": "C-SYN-002",
+    "family": "F09",
+    "expected_anchors": [
+      "R-SYN-003",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000108": {
+    "cause_id": "C-UNK-000",
+    "family": "F00",
+    "expected_anchors": [
+      "R-SEC-005"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.0,
+      0.55
+    ]
+  },
+  "DOS-PRV-000109": {
+    "cause_id": "C-IDN-001",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Deux blocages réels : on attend le plus amont du parcours"
+  },
+  "DOS-PRV-000110": {
+    "cause_id": "C-IDN-001",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000111": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Non-résident dans une agence sans service non-résidents, mais étape de choix dépassée : rien à signaler"
+  },
+  "DOS-PRV-000112": {
+    "cause_id": "C-AGE-005",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-005",
+      "R-GEN-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Agence SANS signature électronique, signature simplement en attente : finalisation en agence, sans anomalie"
+  },
+  "DOS-PRV-000113": {
+    "cause_id": "C-ORI-001",
+    "family": "F01",
+    "expected_anchors": [
+      "R-ORI-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000114": {
+    "cause_id": "C-AGC-003",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-004"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000115": {
+    "cause_id": "C-OFR-001",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-015",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000116": {
+    "cause_id": "C-PRF-001",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-001"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000117": {
+    "cause_id": "C-SYN-003",
+    "family": "F09",
+    "expected_anchors": [
+      "R-GEN-019",
+      "R-SYN-004"
+    ],
+    "expected_owner": "back_office",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000118": {
+    "cause_id": "C-OFR-002",
+    "family": "F06",
+    "expected_anchors": [
+      "R-OFR-013",
+      "R-OFR-016"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000119": {
+    "cause_id": "C-AGE-002",
+    "family": "F11",
+    "expected_anchors": [
+      "R-AGE-002",
+      "R-AGE-006"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000120": {
+    "cause_id": "C-IDN-002",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-001",
+      "R-IDN-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000121": {
+    "cause_id": "C-AGC-001",
+    "family": "F08",
+    "expected_anchors": [
+      "R-AGC-002"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": false,
+    "confidence_band": [
+      0.5,
+      1.0
+    ],
+    "variante": "Délai juste SOUS le seuil : ne doit pas être signalé comme anomalie"
+  },
+  "DOS-PRV-000122": {
+    "cause_id": "C-UNK-000",
+    "family": "F00",
+    "expected_anchors": [
+      "R-SEC-005"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.0,
+      0.55
+    ]
+  },
+  "DOS-PRV-000123": {
+    "cause_id": "C-PRF-002",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000124": {
+    "cause_id": "C-SEC-003",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-003"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000125": {
+    "cause_id": "C-DOC-001",
+    "family": "F04",
+    "expected_anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000126": {
+    "cause_id": "C-PRF-003",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-003"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000127": {
+    "cause_id": "C-IDN-003",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-004"
+    ],
+    "expected_owner": "agence",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000128": {
+    "cause_id": "C-OTP-003",
+    "family": "F03",
+    "expected_anchors": [
+      "R-OTP-005"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000129": {
+    "cause_id": "C-SEC-001",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-004",
+      "R-DOC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000130": {
+    "cause_id": "C-SEC-003",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-003"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000131": {
+    "cause_id": "C-PRF-002",
+    "family": "F05",
+    "expected_anchors": [
+      "R-PRF-002"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000132": {
+    "cause_id": "C-IDN-001",
+    "family": "F02",
+    "expected_anchors": [
+      "R-IDN-003"
+    ],
+    "expected_owner": "client",
+    "must_escalate": false,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  },
+  "DOS-PRV-000133": {
+    "cause_id": "C-SEC-002",
+    "family": "F10",
+    "expected_anchors": [
+      "R-SEC-002",
+      "R-SEC-006"
+    ],
+    "expected_owner": "securite",
+    "must_escalate": true,
+    "confidence_band": [
+      0.6,
+      1.0
+    ]
+  }
+}

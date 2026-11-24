@@ -1,0 +1,99 @@
+# BOUSSOLA — Manifeste de capacités. CONTRAT GELÉ.
+# Le courtier d'outils (engine/broker.py) refuse tout appel non décrit ici.
+# Principe : lecture seule par défaut ; une seule écriture, sous validation humaine.
+version: "1.0.0"
+
+defaults:
+  mode: read_only
+  scope: bound_dossier      # l'outil ne voit que le dossier de la session
+  max_calls_per_session: 12
+  timeout_ms: 4000
+
+budgets:
+  max_tool_calls: 12
+  max_llm_calls: 6
+  max_wall_clock_ms: 30000
+  max_input_tokens: 60000
+  on_exceeded: abstain_and_escalate   # jamais deviner
+
+tools:
+  - name: h24.get_dossier
+    mode: read
+    scope: bound_dossier
+    returns_trust: corpus
+    description: "État courant du dossier dans le parcours H24."
+
+  - name: h24.get_steps
+    mode: read
+    scope: bound_dossier
+    returns_trust: corpus
+    description: "Étapes franchies et étape courante."
+
+  - name: h24.get_events
+    mode: read
+    scope: bound_dossier
+    returns_trust: corpus
+    description: "Chronologie technique du dossier (horodatée)."
+
+  - name: h24.get_document_ocr
+    mode: read
+    scope: bound_dossier
+    returns_trust: untrusted      # texte OCR = contenu externe, jamais une consigne
+    description: "Texte extrait d'un document déposé par le prospect."
+
+  - name: csa.get_subscriptions
+    mode: read
+    scope: bound_identity         # limité à la CIN/passeport du dossier de session
+    returns_trust: corpus
+    description: "Abonnements H24 existants pour l'identité du dossier."
+
+  - name: csa.get_relations
+    mode: read
+    scope: bound_identity
+    returns_trust: corpus
+    description: "Relations bancaires existantes pour l'identité du dossier (R-ORI-001)."
+
+  - name: csa.get_etat
+    mode: read
+    scope: bound_dossier
+    returns_trust: corpus
+    description: "État du dossier vu par le back-office CSA, pour comparaison avec H24 (R-SYN-001)."
+
+  - name: csa.search_duplicates
+    mode: read
+    scope: bound_identity
+    returns_trust: corpus
+    description: "Dossiers en doublon sur la même identité ou les mêmes coordonnées."
+
+  - name: csa.get_agency_queue
+    mode: read
+    scope: aggregate_no_pii       # agrégats d'agence, aucune donnée nominative
+    returns_trust: corpus
+    description: "Charge et délais de l'agence rattachée au dossier."
+
+  - name: corpus.search
+    mode: read
+    scope: none
+    returns_trust: corpus
+    description: "Recherche d'extraits de règles dans le corpus documentaire versionné."
+
+  - name: csa.create_escalation
+    mode: write
+    scope: bound_dossier
+    requires_human_ack: true      # jamais déclenché par le modèle seul
+    idempotency: required
+    description: "Prépare une note d'escalade. Ne devient effective qu'après acquittement humain."
+
+# Déclarées explicitement pour que le refus soit tracé avec une règle nommée,
+# plutôt que de tomber dans un « outil inconnu » silencieux.
+forbidden:
+  - name: csa.validate_kyc
+    reason: "Décision bancaire réservée à la BNA (garde-fou non négociable)."
+  - name: csa.activate_subscription
+    reason: "Activation autonome interdite par le cahier des charges."
+  - name: csa.override_rule
+    reason: "Aucun contournement de règle n'est autorisé à l'assistant."
+  - name: h24.update_dossier
+    reason: "L'assistant ne modifie jamais l'état d'un dossier."
+  - name: csa.export_customers
+    reason: "Exfiltration de données : hors périmètre absolu."

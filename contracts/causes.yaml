@@ -1,0 +1,308 @@
+# BOUSSOLA — Taxonomie fermée des causes de blocage.
+# CONTRAT GELÉ. Le moteur ne peut JAMAIS produire un cause_id absent de ce fichier.
+# C'est la garantie structurelle contre l'hallucination de cause (critère 25% + 15%).
+version: "1.0.0"
+
+owners:
+  client:      { label_fr: "Le client",            label_en: "The client" }
+  agence:      { label_fr: "L'agence BNA",         label_en: "The BNA branch" }
+  back_office: { label_fr: "Le back-office / CSA", label_en: "Back-office / CSA" }
+  securite:    { label_fr: "L'équipe sécurité",    label_en: "Security team" }
+
+families:
+  F01: { label_fr: "Orientation du parcours",      label_en: "Journey routing" }
+  F02: { label_fr: "Identité",                     label_en: "Identity" }
+  F03: { label_fr: "Coordonnées et OTP",           label_en: "Contact details & OTP" }
+  F04: { label_fr: "Documents",                    label_en: "Documents" }
+  F05: { label_fr: "Profil incomplet",             label_en: "Incomplete profile" }
+  F06: { label_fr: "Incompatibilité offre/profil", label_en: "Offer/profile mismatch" }
+  F07: { label_fr: "Doublon de dossier",           label_en: "Duplicate application" }
+  F08: { label_fr: "Attente côté agence",          label_en: "Pending at branch" }
+  F09: { label_fr: "Désynchronisation services",   label_en: "Service desync" }
+  F10: { label_fr: "Tentative de manipulation",    label_en: "Manipulation attempt" }
+  F11: { label_fr: "Choix de l'agence et mode de finalisation", label_en: "Branch choice & completion mode" }
+
+# severity: info | action_client | action_interne | critique
+causes:
+  # ---- F01 Orientation ---------------------------------------------------
+  - id: C-ORI-001
+    family: F01
+    owner: client
+    severity: action_client
+    label_fr: "Vous êtes déjà client BNA"
+    label_ar: "أنت حريف في البنك الوطني الفلاحي من قبل"
+    label_en: "You are already a BNA customer"
+  - id: C-ORI-002
+    family: F01
+    owner: client
+    severity: action_client
+    label_fr: "Parcours inadapté au statut déclaré"
+    label_ar: "المسار غير ملائم للوضعية المصرّح بها"
+    label_en: "Journey does not match the declared status"
+  - id: C-ORI-003
+    family: F01
+    owner: client
+    severity: action_client
+    label_fr: "Dossier expiré, à reprendre depuis le début"
+    label_ar: "الملف انتهت صلوحيته، لازم تبدا من جديد"
+    label_en: "Application expired, must be restarted"
+
+  # ---- F02 Identité ------------------------------------------------------
+  - id: C-IDN-001
+    family: F02
+    owner: client
+    severity: action_client
+    label_fr: "Pièce d'identité expirée"
+    label_ar: "بطاقة التعريف منتهية الصلوحية"
+    label_en: "Expired identity document"
+  - id: C-IDN-002
+    family: F02
+    owner: client
+    severity: action_client
+    label_fr: "Type de pièce d'identité non accepté pour cette offre"
+    label_ar: "نوع وثيقة التعريف غير مقبول لهذا العرض"
+    label_en: "Identity document type not accepted for this offer"
+  - id: C-IDN-003
+    family: F02
+    owner: agence
+    severity: action_interne
+    label_fr: "Incohérence entre la pièce d'identité et le formulaire"
+    label_ar: "تعارض بين وثيقة التعريف والمطبوع"
+    label_en: "Mismatch between identity document and form"
+
+  # ---- F03 Coordonnées et OTP -------------------------------------------
+  - id: C-OTP-001
+    family: F03
+    owner: client
+    severity: action_client
+    label_fr: "Nombre maximum de tentatives OTP atteint"
+    label_ar: "وصلت للعدد الأقصى من محاولات الرمز المؤقّت"
+    label_en: "Maximum OTP attempts reached"
+  - id: C-OTP-002
+    family: F03
+    owner: client
+    severity: action_client
+    label_fr: "Numéro de téléphone non éligible à l'envoi d'OTP"
+    label_ar: "رقم الهاتف ما يقبلش إرسال الرمز المؤقّت"
+    label_en: "Phone number not eligible for OTP delivery"
+  - id: C-OTP-003
+    family: F03
+    owner: client
+    severity: action_client
+    label_fr: "Adresse e-mail invalide ou déjà rattachée à un autre dossier"
+    label_ar: "البريد الإلكتروني غير صحيح ولا مرتبط بملف آخر"
+    label_en: "Email invalid or already linked to another application"
+
+  # ---- F04 Documents -----------------------------------------------------
+  - id: C-DOC-001
+    family: F04
+    owner: client
+    severity: action_client
+    label_fr: "Document obligatoire manquant"
+    label_ar: "وثيقة إجبارية ناقصة"
+    label_en: "Mandatory document missing"
+  - id: C-DOC-002
+    family: F04
+    owner: client
+    severity: action_client
+    label_fr: "Document illisible"
+    label_ar: "الوثيقة غير مقروءة"
+    label_en: "Document unreadable"
+  - id: C-DOC-003
+    family: F04
+    owner: client
+    severity: action_client
+    label_fr: "Justificatif trop ancien"
+    label_ar: "الإثبات قديم برشة"
+    label_en: "Supporting document too old"
+
+  # ---- F05 Profil incomplet ---------------------------------------------
+  - id: C-PRF-001
+    family: F05
+    owner: client
+    severity: action_client
+    label_fr: "Champs obligatoires du profil non renseignés"
+    label_ar: "خانات إجبارية في الملف الشخصي فارغة"
+    label_en: "Mandatory profile fields missing"
+  - id: C-PRF-002
+    family: F05
+    owner: client
+    severity: action_client
+    label_fr: "Revenu déclaré non justifié"
+    label_ar: "المدخول المصرّح به بلا إثبات"
+    label_en: "Declared income not evidenced"
+  - id: C-PRF-003
+    family: F05
+    owner: client
+    severity: action_client
+    label_fr: "Situation professionnelle incohérente avec les justificatifs"
+    label_ar: "الوضعية المهنية ما تتماشاش مع الإثباتات"
+    label_en: "Professional status inconsistent with supporting documents"
+
+  # ---- F06 Incompatibilité offre/profil ---------------------------------
+  - id: C-OFR-001
+    family: F06
+    owner: client
+    severity: action_client
+    label_fr: "Offre réservée aux résidents"
+    label_ar: "العرض مخصّص للمقيمين"
+    label_en: "Offer restricted to residents"
+  - id: C-OFR-002
+    family: F06
+    owner: client
+    severity: action_client
+    label_fr: "Revenu inférieur au seuil de l'offre"
+    label_ar: "المدخول أقلّ من العتبة المطلوبة"
+    label_en: "Income below the offer threshold"
+  - id: C-OFR-003
+    family: F06
+    owner: client
+    severity: action_client
+    label_fr: "Âge hors des bornes de l'offre"
+    label_ar: "العمر خارج الحدود المسموحة للعرض"
+    label_en: "Age outside the offer's range"
+  - id: C-OFR-004
+    family: F06
+    owner: client
+    severity: action_client
+    label_fr: "Offre conditionnée à une domiciliation de salaire"
+    label_ar: "العرض يشترط تحويل الأجر للبنك"
+    label_en: "Offer requires salary domiciliation"
+
+  # ---- F07 Doublon -------------------------------------------------------
+  - id: C-DUP-001
+    family: F07
+    owner: back_office
+    severity: action_interne
+    label_fr: "Dossier en double sur le même numéro de CIN"
+    label_ar: "ملف مكرّر بنفس رقم بطاقة التعريف"
+    label_en: "Duplicate application on the same national ID"
+  - id: C-DUP-002
+    family: F07
+    owner: back_office
+    severity: action_interne
+    label_fr: "Coordonnées déjà utilisées par un autre dossier"
+    label_ar: "المعطيات مستعملة في ملف آخر"
+    label_en: "Contact details already used by another application"
+  - id: C-DUP-003
+    family: F07
+    owner: back_office
+    severity: action_interne
+    label_fr: "Abonnement déjà actif sur ce pack"
+    label_ar: "الاشتراك في هذا العرض فعّال من قبل"
+    label_en: "Subscription already active on this pack"
+
+  # ---- F08 Attente agence ------------------------------------------------
+  - id: C-AGC-001
+    family: F08
+    owner: agence
+    severity: info
+    label_fr: "En attente de validation en agence (délai normal)"
+    label_ar: "في انتظار المصادقة في الوكالة (في الآجال)"
+    label_en: "Awaiting branch validation (within normal time)"
+  - id: C-AGC-002
+    family: F08
+    owner: agence
+    severity: action_interne
+    label_fr: "Délai de traitement en agence dépassé"
+    label_ar: "تجاوز آجال المعالجة في الوكالة"
+    label_en: "Branch processing time exceeded"
+  - id: C-AGC-003
+    family: F08
+    owner: client
+    severity: action_client
+    label_fr: "Rendez-vous en agence non honoré"
+    label_ar: "الموعد في الوكالة ما تحضرش ليه"
+    label_en: "Branch appointment missed"
+
+  # ---- F11 Choix de l'agence et mode de finalisation -----------------------
+  - id: C-AGE-001
+    family: F11
+    owner: client
+    severity: action_client
+    label_fr: "Aucune agence choisie"
+    label_ar: "لم يتم اختيار وكالة بعد"
+    label_en: "No branch selected"
+  - id: C-AGE-002
+    family: F11
+    owner: client
+    severity: action_client
+    label_fr: "Agence choisie temporairement indisponible"
+    label_ar: "الوكالة المختارة غير متاحة مؤقتًا"
+    label_en: "Selected branch temporarily unavailable"
+  - id: C-AGE-003
+    family: F11
+    owner: client
+    severity: action_client
+    label_fr: "Agence choisie ne prenant pas en charge ce profil"
+    label_ar: "الوكالة المختارة لا تتعامل مع هذا الصنف من الحرفاء"
+    label_en: "Selected branch does not handle this profile"
+  - id: C-AGE-004
+    family: F11
+    owner: back_office
+    severity: action_interne
+    label_fr: "Rattachement à l'agence à corriger par nos équipes"
+    label_ar: "ربط الملف بالوكالة يحتاج إلى تصحيح من فرقنا"
+    label_en: "Branch assignment to be corrected by our teams"
+  - id: C-AGE-005
+    family: F11
+    owner: client
+    severity: action_client
+    label_fr: "Signature électronique non aboutie : à finaliser en agence"
+    label_ar: "تعذّر الإمضاء الإلكتروني: يتمّ إنهاء الإجراء في الوكالة"
+    label_en: "Electronic signature not completed: finish at the branch"
+
+  # ---- F09 Désynchronisation --------------------------------------------
+  - id: C-SYN-001
+    family: F09
+    owner: back_office
+    severity: action_interne
+    label_fr: "Désynchronisation entre le parcours H24 et le CSA"
+    label_ar: "عدم تزامن بين مسار H24 و CSA"
+    label_en: "Desync between the H24 journey and CSA"
+  - id: C-SYN-002
+    family: F09
+    owner: back_office
+    severity: action_interne
+    label_fr: "Signature électronique non propagée"
+    label_ar: "الإمضاء الإلكتروني ما وصلش"
+    label_en: "Electronic signature not propagated"
+  - id: C-SYN-003
+    family: F09
+    owner: back_office
+    severity: critique
+    label_fr: "Incident technique sur un service amont"
+    label_ar: "عطب تقني في خدمة مرتبطة"
+    label_en: "Technical incident on an upstream service"
+
+  # ---- F10 Manipulation --------------------------------------------------
+  - id: C-SEC-001
+    family: F10
+    owner: securite
+    severity: critique
+    label_fr: "Instructions injectées dans un document déposé"
+    label_ar: "تعليمات مدسوسة في وثيقة مودعة"
+    label_en: "Injected instructions inside an uploaded document"
+  - id: C-SEC-002
+    family: F10
+    owner: securite
+    severity: critique
+    label_fr: "Tentative de contournement des consignes de l'assistant"
+    label_ar: "محاولة للالتفاف على تعليمات المساعد"
+    label_en: "Attempt to bypass the assistant's instructions"
+  - id: C-SEC-003
+    family: F10
+    owner: securite
+    severity: critique
+    label_fr: "Demande d'accès à des données hors périmètre du dossier"
+    label_ar: "طلب النفاذ لمعطيات خارج نطاق الملف"
+    label_en: "Request for data outside the application's scope"
+
+  # ---- Repli sûr ---------------------------------------------------------
+  - id: C-UNK-000
+    family: F00
+    owner: agence
+    severity: action_interne
+    label_fr: "Cause indéterminée — validation humaine requise"
+    label_ar: "السبب غير محدّد — تلزم مراجعة بشرية"
+    label_en: "Undetermined cause — human review required"

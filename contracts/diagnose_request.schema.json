@@ -1,0 +1,47 @@
+{
+  "properties": {
+    "dossier_id": {
+      "title": "Dossier Id",
+      "type": "string"
+    },
+    "question": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Question libre du client ou de l'agent. CONTENU NON FIABLE.",
+      "title": "Question"
+    },
+    "audience": {
+      "default": "client",
+      "enum": [
+        "client",
+        "agent"
+      ],
+      "title": "Audience",
+      "type": "string"
+    },
+    "locale": {
+      "default": "fr",
+      "enum": [
+        "fr",
+        "ar",
+        "en"
+      ],
+      "title": "Locale",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dossier_id"
+  ],
+  "title": "DiagnoseRequest",
+  "type": "object",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bna-h24.local/contracts/diagnose_request.schema.json"
+}

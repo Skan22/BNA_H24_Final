@@ -1,0 +1,1730 @@
+{
+  "relations": [
+    {
+      "cin": "14264832",
+      "statut": "active",
+      "client_id": "CLI-98541",
+      "depuis": "2021-08-20",
+      "cloturee_le": null
+    },
+    {
+      "cin": "12619976",
+      "statut": "active",
+      "client_id": "CLI-54034",
+      "depuis": "2023-03-16",
+      "cloturee_le": null
+    },
+    {
+      "cin": "12597185",
+      "statut": "active",
+      "client_id": "CLI-27193",
+      "depuis": "2025-01-29",
+      "cloturee_le": null
+    }
+  ],
+  "subscriptions": [
+    {
+      "identite": "11859863",
+      "pack_code": "H24-PRIME",
+      "statut": "active",
+      "depuis": "2024-10-13"
+    },
+    {
+      "identite": "10258670",
+      "pack_code": "H24-PRIME",
+      "statut": "active",
+      "depuis": "2025-12-16"
+    },
+    {
+      "identite": "13908632",
+      "pack_code": "H24-PRIME",
+      "statut": "active",
+      "depuis": "2026-01-28"
+    }
+  ],
+  "dossiers_index": [
+    {
+      "dossier_id": "DOS-PRV-000001",
+      "cin": "11631854",
+      "email": "youssef.hammami80@example.tn",
+      "telephone": "+21657592614",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-77592",
+      "cin": null,
+      "email": null,
+      "telephone": "+21657592614",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000002",
+      "cin": "10024142",
+      "email": "yasmine.ayari59@example.tn",
+      "telephone": "+21692440009",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000003",
+      "cin": "11242630",
+      "email": "nidhal.chaouch20@example.tn",
+      "telephone": "+21651265816",
+      "statut": "REJETE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000004",
+      "cin": "11625223",
+      "email": "dorra.salah81@example.tn",
+      "telephone": "+21626020810",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000005",
+      "cin": null,
+      "email": "sarra.hammami75@example.tn",
+      "telephone": "+21655580550",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000006",
+      "cin": "10100809",
+      "email": "nidhal.salah23@example.tn",
+      "telephone": "+21698938087",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000007",
+      "cin": "12732597",
+      "email": "hamza.salah47@example.tn",
+      "telephone": "+21629230548",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000008",
+      "cin": "14907970",
+      "email": "mohamed.zouari59@example.tn",
+      "telephone": "+21642501708",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000009",
+      "cin": "10910510",
+      "email": "hela.mejri20@example.tn",
+      "telephone": "+21695306412",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000010",
+      "cin": "12658602",
+      "email": "rim.mejri72@example.tn",
+      "telephone": "+21625966734",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000011",
+      "cin": "14902822",
+      "email": "hamza.hammami10@example.tn",
+      "telephone": "+21628381371",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000012",
+      "cin": "12919401",
+      "email": "skander.jelassi17@example.tn",
+      "telephone": "+21624115416",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000013",
+      "cin": "14379980",
+      "email": "ahmed.salah75@example.tn",
+      "telephone": "+21621768890",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000014",
+      "cin": "14984973",
+      "email": "rim.bouazizi35@example.tn",
+      "telephone": "+21647757883",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000015",
+      "cin": "13869071",
+      "email": "anis.chaouch87@example.tn",
+      "telephone": "+21626273482",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000016",
+      "cin": "14709461",
+      "email": "hela.chaouch14@example.tn",
+      "telephone": "+21696761938",
+      "statut": "REJETE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000017",
+      "cin": "10092162",
+      "email": "anis.chaouch73@example.tn",
+      "telephone": "+21644802214",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000018",
+      "cin": "12354179",
+      "email": "sarra.nasri97@example.tn",
+      "telephone": "+21624405134",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000019",
+      "cin": "14247219",
+      "email": "salma.nasri41@example.tn",
+      "telephone": "+21654058707",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000020",
+      "cin": "14693111",
+      "email": "yasmine.ferchichi49@example.tn",
+      "telephone": "+21645519572",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000021",
+      "cin": "10412127",
+      "email": "nidhal.khelifi85@example.tn",
+      "telephone": "+21697797226",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000022",
+      "cin": "14115917",
+      "email": "mariem.gharbi74@example.tn",
+      "telephone": "+21654134590",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000023",
+      "cin": "10577910",
+      "email": "ines.ayari61@example.tn",
+      "telephone": "+21696800698",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000024",
+      "cin": "11899154",
+      "email": "oussama.nasri62@example.tn",
+      "telephone": "+21626366688",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000025",
+      "cin": "12061821",
+      "email": "amira.mejri56@example.tn",
+      "telephone": "+21629375580",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000026",
+      "cin": "11859863",
+      "email": "youssef.gharbi72@example.tn",
+      "telephone": "+21625084992",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000027",
+      "cin": null,
+      "email": "bilel.nasri86@example.tn",
+      "telephone": "+21651158371",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000028",
+      "cin": "10308988",
+      "email": "hamza.khelifi49@example.tn",
+      "telephone": "+21625166476",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000029",
+      "cin": "13784726",
+      "email": "amira.ayari37@example.tn",
+      "telephone": "+21622222026",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000030",
+      "cin": "10454859",
+      "email": "anis.hammami60@example.tn",
+      "telephone": "+21628289258",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000031",
+      "cin": "11898091",
+      "email": "dorra.mejri57@example.tn",
+      "telephone": "+21646388036",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000032",
+      "cin": "12516056",
+      "email": "mariem.dridi28@example.tn",
+      "telephone": "+21655490769",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000033",
+      "cin": "10522177",
+      "email": "nidhal.mejri59@example.tn",
+      "telephone": "+21693720593",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000034",
+      "cin": "11149776",
+      "email": "yasmine.ayari80@example.tn",
+      "telephone": "+21659176855",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000035",
+      "cin": "12405714",
+      "email": "skander.dridi33@example.tn",
+      "telephone": "+21624139802",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000036",
+      "cin": "13763819",
+      "email": "nour.hammami4@example.tn",
+      "telephone": "+21644604814",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000037",
+      "cin": "10734420",
+      "email": "seif.jelassi54@example.tn",
+      "telephone": "+21626070465",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000038",
+      "cin": null,
+      "email": "hamza.mejri25@example.tn",
+      "telephone": "+21653098330",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000039",
+      "cin": "10050341",
+      "email": "rim.mejri41@example.tn",
+      "telephone": "+21643402362",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000040",
+      "cin": "10254624",
+      "email": "sarra.dridi13@example.tn",
+      "telephone": "+21653114605",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-81445",
+      "cin": "10254624",
+      "email": "autre32@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000041",
+      "cin": "14747274",
+      "email": "oussama.salah22@example.tn",
+      "telephone": "+21653113624",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000042",
+      "cin": "11042748",
+      "email": "nidhal.ferchichi88@example.tn",
+      "telephone": "+21646490151",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-89759",
+      "cin": "11042748",
+      "email": "autre46@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000043",
+      "cin": "10092499",
+      "email": "nour.ayari71@example.tn",
+      "telephone": "+21627008508",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000044",
+      "cin": "12566331",
+      "email": "amira.ferchichi89@example.tn",
+      "telephone": "+21693349916",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000045",
+      "cin": "14922233",
+      "email": "mariem.mejri22@example.tn",
+      "telephone": "+21648191611",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000046",
+      "cin": "14264832",
+      "email": "dorra.khelifi12@example.tn",
+      "telephone": "+21696256967",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000047",
+      "cin": "13804483",
+      "email": "amira.ferchichi56@example.tn",
+      "telephone": "+21623536489",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-75699",
+      "cin": null,
+      "email": null,
+      "telephone": "+21623536489",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000048",
+      "cin": "14577507",
+      "email": "oussama.nasri44@example.tn",
+      "telephone": "+21697423984",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000049",
+      "cin": "10894283",
+      "email": "oussama.trabelsi75@example.tn",
+      "telephone": "+21622840046",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000050",
+      "cin": "11444101",
+      "email": "yasmine.bouazizi80@example.tn",
+      "telephone": "+21646672367",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000051",
+      "cin": "11118909",
+      "email": "rim.zouari24@example.tn",
+      "telephone": "+21659737906",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000052",
+      "cin": "10205718",
+      "email": "oussama.zouari2@example.tn",
+      "telephone": "+21644895122",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000053",
+      "cin": "14855251",
+      "email": "hela.gharbi69@example.tn",
+      "telephone": "+21698037577",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000054",
+      "cin": "14259428",
+      "email": "sarra.salah20@example.tn",
+      "telephone": "+21646331916",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000055",
+      "cin": "10626081",
+      "email": "hela.hammami57@example.tn",
+      "telephone": "+21621805836",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000056",
+      "cin": "12879098",
+      "email": "hela.salah19@example.tn",
+      "telephone": "+21698212905",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000057",
+      "cin": "13299449",
+      "email": "hela.trabelsi73@example.tn",
+      "telephone": "+21628824268",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000058",
+      "cin": "13506421",
+      "email": "rim.salah10@example.tn",
+      "telephone": "+21641923807",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000059",
+      "cin": "12042143",
+      "email": "oussama.trabelsi29@example.tn",
+      "telephone": "+21659668288",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000060",
+      "cin": "12619976",
+      "email": "ines.ayari51@example.tn",
+      "telephone": "+21623566329",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000061",
+      "cin": "11480546",
+      "email": "skander.belhadj70@example.tn",
+      "telephone": "+21625660037",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000062",
+      "cin": "12112513",
+      "email": "amira.hammami90@example.tn",
+      "telephone": "+21653541021",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000063",
+      "cin": "12368066",
+      "email": "bilel.khelifi2@example.tn",
+      "telephone": "+21642800698",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000064",
+      "cin": "13492916",
+      "email": "youssef.belhadj5@example.tn",
+      "telephone": "+21693967590",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000065",
+      "cin": "13639634",
+      "email": "mohamed.ayari29@example.tn",
+      "telephone": "+21645441984",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-99960",
+      "cin": null,
+      "email": "mohamed.ayari29@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000066",
+      "cin": "13679439",
+      "email": "yasmine.dridi77@example.tn",
+      "telephone": "+21625047572",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000067",
+      "cin": "11095252",
+      "email": "rim.chaouch13@example.tn",
+      "telephone": "+21627059855",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000068",
+      "cin": "14073538",
+      "email": "sarra.jelassi82@example.tn",
+      "telephone": "+21696542113",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000069",
+      "cin": "13920651",
+      "email": "rim.bouazizi86@example.tn",
+      "telephone": "+21695698155",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000070",
+      "cin": "10220495",
+      "email": "mariem.ferchichi78@example.tn",
+      "telephone": "+21642244387",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000071",
+      "cin": "12070791",
+      "email": "hamza.mejri63@example.tn",
+      "telephone": "+21628327808",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000072",
+      "cin": "14745260",
+      "email": "dorra.chaouch45@example.tn",
+      "telephone": "+21629029656",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000073",
+      "cin": "12449921",
+      "email": "skander.jelassi48@example.tn",
+      "telephone": "+21642586957",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-74555",
+      "cin": null,
+      "email": null,
+      "telephone": "+21642586957",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000074",
+      "cin": "12343240",
+      "email": "hela.zouari8@example.tn",
+      "telephone": "+21655892072",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000075",
+      "cin": "11521178",
+      "email": "rim.khelifi40@example.tn",
+      "telephone": "+21671139548",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000076",
+      "cin": "13942627",
+      "email": "anis.chaouch10@example.tn",
+      "telephone": "+21695580065",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000077",
+      "cin": "11863014",
+      "email": "youssef.chaouch22@example.tn",
+      "telephone": "+21698206916",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000078",
+      "cin": "13621249",
+      "email": "mariem.hammami60@example.tn",
+      "telephone": "+21696876270",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000079",
+      "cin": "11944272",
+      "email": "mohamed.ferchichi19@example.tn",
+      "telephone": "+21643937003",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000080",
+      "cin": "12632422",
+      "email": "bilel.dridi85@example.tn",
+      "telephone": "+21652501000",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000081",
+      "cin": "11172384",
+      "email": "nour.zouari84@example.tn",
+      "telephone": "+21641812692",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000082",
+      "cin": "13701836",
+      "email": "amira.trabelsi79@example.tn",
+      "telephone": "+21642653513",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000083",
+      "cin": "12710063",
+      "email": "ines.belhadj81@example.tn",
+      "telephone": "+21621960633",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-98378",
+      "cin": null,
+      "email": "ines.belhadj81@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000084",
+      "cin": "14652428",
+      "email": "yasmine.trabelsi87@example.tn",
+      "telephone": "+21651793002",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000085",
+      "cin": "14683521",
+      "email": "rim.ayari32@example.tn",
+      "telephone": "+21646166846",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000086",
+      "cin": "14524937",
+      "email": "ahmed.chaouch22@example.tn",
+      "telephone": "+21655841054",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000087",
+      "cin": "12098973",
+      "email": "rim.salah33@example.tn",
+      "telephone": "+21654788304",
+      "statut": "REJETE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000088",
+      "cin": "10570441",
+      "email": "rim.ferchichi53@example.tn",
+      "telephone": "+21698561109",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000089",
+      "cin": "14308212",
+      "email": "skander.ferchichi61@example.tn",
+      "telephone": "+21629140886",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-83986",
+      "cin": "14308212",
+      "email": "autre28@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000090",
+      "cin": "13657782",
+      "email": "ines.hammami21@example.tn",
+      "telephone": "+21653125752",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000091",
+      "cin": "14005630",
+      "email": "amira.zouari62@example.tn",
+      "telephone": "+21649046648",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000092",
+      "cin": "11540199",
+      "email": "dorra.nasri11@example.tn",
+      "telephone": "+21671695790",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000093",
+      "cin": "14822879",
+      "email": "amira.khelifi81@example.tn",
+      "telephone": "+21691218047",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000094",
+      "cin": "12779236",
+      "email": "bilel.hammami36@example.tn",
+      "telephone": "+21628946142",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000095",
+      "cin": "10258670",
+      "email": "yasmine.zouari23@example.tn",
+      "telephone": "+21647589860",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000096",
+      "cin": "14259017",
+      "email": "anis.chaouch17@example.tn",
+      "telephone": "+21655554245",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000097",
+      "cin": "13194584",
+      "email": "nour.belhadj69@example.tn",
+      "telephone": "+21647163763",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000098",
+      "cin": "12970288",
+      "email": "mohamed.chaouch99@example.tn",
+      "telephone": "+21646416165",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000099",
+      "cin": null,
+      "email": "youssef.nasri16@example.tn",
+      "telephone": "+21647418216",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000100",
+      "cin": "13925107",
+      "email": "hamza.salah41@example.tn",
+      "telephone": "+33671869110",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000101",
+      "cin": "11475066",
+      "email": "sarra.gharbi62@example.tn",
+      "telephone": "+21654002048",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000102",
+      "cin": "13576392",
+      "email": "yasmine.hammami18@example.tn",
+      "telephone": "+21692545536",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000103",
+      "cin": "12896677",
+      "email": "skander.ferchichi83@example.tn",
+      "telephone": "+21692755401",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000104",
+      "cin": "13908632",
+      "email": "yasmine.gharbi40@example.tn",
+      "telephone": "+21698378836",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000105",
+      "cin": "11497189",
+      "email": "oussama.bouazizi61@example.tn",
+      "telephone": "+21692844589",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000106",
+      "cin": "13884391",
+      "email": "nidhal.mejri34@example.tn",
+      "telephone": "+21656891231",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000107",
+      "cin": "11636685",
+      "email": "hamza.dridi32@example.tn",
+      "telephone": "+21652318975",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000108",
+      "cin": "14141927",
+      "email": "oussama.nasri91@example.tn",
+      "telephone": "+21642381376",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000109",
+      "cin": "13316137",
+      "email": "bilel.ayari31@example.tn",
+      "telephone": "+21642505759",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000110",
+      "cin": "11314083",
+      "email": "anis.khelifi48@example.tn",
+      "telephone": "+21642614392",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000111",
+      "cin": null,
+      "email": "oussama.ayari42@example.tn",
+      "telephone": "+21655031104",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000112",
+      "cin": "14809183",
+      "email": "amira.ferchichi71@example.tn",
+      "telephone": "+21629089403",
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000113",
+      "cin": "12597185",
+      "email": "nour.dridi51@example.tn",
+      "telephone": "+21623231805",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000114",
+      "cin": "14737270",
+      "email": "salma.gharbi46@example.tn",
+      "telephone": "+21692460934",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000115",
+      "cin": "13917331",
+      "email": "mohamed.ayari8@example.tn",
+      "telephone": "+21691048760",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000116",
+      "cin": "10717703",
+      "email": "oussama.hammami17@example.tn",
+      "telephone": "+21654069207",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000117",
+      "cin": "14163137",
+      "email": "nidhal.zouari38@example.tn",
+      "telephone": "+21628880568",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000118",
+      "cin": "12079156",
+      "email": "sarra.belhadj84@example.tn",
+      "telephone": "+21696840627",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000119",
+      "cin": "11785269",
+      "email": "skander.gharbi57@example.tn",
+      "telephone": "+21692766140",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000120",
+      "cin": "11624071",
+      "email": "seif.belhadj95@example.tn",
+      "telephone": "+21621648388",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000121",
+      "cin": "14333334",
+      "email": "mariem.zouari83@example.tn",
+      "telephone": "+21645601894",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000122",
+      "cin": "12213979",
+      "email": "seif.nasri83@example.tn",
+      "telephone": "+21658770063",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000123",
+      "cin": "13911338",
+      "email": "ines.dridi57@example.tn",
+      "telephone": "+21659841089",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000124",
+      "cin": "14352414",
+      "email": "bilel.mejri4@example.tn",
+      "telephone": "+21621107748",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000125",
+      "cin": "14011068",
+      "email": "rim.jelassi46@example.tn",
+      "telephone": "+21648361499",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000126",
+      "cin": "12181097",
+      "email": "nour.ayari70@example.tn",
+      "telephone": "+21695212108",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000127",
+      "cin": "12609755",
+      "email": "salma.ayari89@example.tn",
+      "telephone": "+21698892601",
+      "statut": "EN_ATTENTE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000128",
+      "cin": "14179110",
+      "email": "ines.hammami81@example.tn",
+      "telephone": "+21657534013",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-96048",
+      "cin": null,
+      "email": "ines.hammami81@example.tn",
+      "telephone": null,
+      "statut": "EN_COURS"
+    },
+    {
+      "dossier_id": "DOS-PRV-000129",
+      "cin": "11144131",
+      "email": "dorra.trabelsi90@example.tn",
+      "telephone": "+21644946523",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000130",
+      "cin": "14642792",
+      "email": "bilel.bouazizi66@example.tn",
+      "telephone": "+21697206768",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000131",
+      "cin": "12943299",
+      "email": "yasmine.salah7@example.tn",
+      "telephone": "+21647830857",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000132",
+      "cin": "12732868",
+      "email": "mariem.belhadj93@example.tn",
+      "telephone": "+21621687860",
+      "statut": "BLOQUE"
+    },
+    {
+      "dossier_id": "DOS-PRV-000133",
+      "cin": "12082507",
+      "email": "rim.dridi55@example.tn",
+      "telephone": "+21623715823",
+      "statut": "BLOQUE"
+    }
+  ],
+  "etats": {
+    "DOS-PRV-000001": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-08T22:30:00"
+    },
+    "DOS-PRV-000002": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T05:30:00"
+    },
+    "DOS-PRV-000003": {
+      "step": "DOCUMENTS",
+      "status": "REJETE",
+      "updated_at": "2026-07-16T10:30:00"
+    },
+    "DOS-PRV-000004": {
+      "step": "IDENTITE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-07T02:30:00"
+    },
+    "DOS-PRV-000005": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T20:30:00"
+    },
+    "DOS-PRV-000006": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-12T06:30:00"
+    },
+    "DOS-PRV-000007": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-27T12:30:00"
+    },
+    "DOS-PRV-000008": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T05:30:00"
+    },
+    "DOS-PRV-000009": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T09:30:00"
+    },
+    "DOS-PRV-000010": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T07:30:00"
+    },
+    "DOS-PRV-000011": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-07T19:30:00"
+    },
+    "DOS-PRV-000012": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T16:30:00"
+    },
+    "DOS-PRV-000013": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-06T12:30:00"
+    },
+    "DOS-PRV-000014": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-08T01:30:00"
+    },
+    "DOS-PRV-000015": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-07T22:30:00"
+    },
+    "DOS-PRV-000016": {
+      "step": "DOCUMENTS",
+      "status": "REJETE",
+      "updated_at": "2026-07-30T10:30:00"
+    },
+    "DOS-PRV-000017": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-15T22:30:00"
+    },
+    "DOS-PRV-000018": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T19:30:00"
+    },
+    "DOS-PRV-000019": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T05:30:00"
+    },
+    "DOS-PRV-000020": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-22T16:30:00"
+    },
+    "DOS-PRV-000021": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-19T03:30:00"
+    },
+    "DOS-PRV-000022": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T18:30:00"
+    },
+    "DOS-PRV-000023": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-12T21:30:00"
+    },
+    "DOS-PRV-000024": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T20:30:00"
+    },
+    "DOS-PRV-000025": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-26T04:30:00"
+    },
+    "DOS-PRV-000026": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-07T07:30:00"
+    },
+    "DOS-PRV-000027": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T15:30:00"
+    },
+    "DOS-PRV-000028": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-20T07:30:00"
+    },
+    "DOS-PRV-000029": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T21:30:00"
+    },
+    "DOS-PRV-000030": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T12:30:00"
+    },
+    "DOS-PRV-000031": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-15T19:30:00"
+    },
+    "DOS-PRV-000032": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-20T08:30:00"
+    },
+    "DOS-PRV-000033": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T12:30:00"
+    },
+    "DOS-PRV-000034": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-13T20:30:00"
+    },
+    "DOS-PRV-000036": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-22T21:30:00"
+    },
+    "DOS-PRV-000037": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-13T03:30:00"
+    },
+    "DOS-PRV-000038": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T11:30:00"
+    },
+    "DOS-PRV-000039": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-09T12:30:00"
+    },
+    "DOS-PRV-000040": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-24T11:30:00"
+    },
+    "DOS-PRV-000041": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-13T13:30:00"
+    },
+    "DOS-PRV-000042": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-18T07:30:00"
+    },
+    "DOS-PRV-000043": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T09:30:00"
+    },
+    "DOS-PRV-000044": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T17:30:00"
+    },
+    "DOS-PRV-000045": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T04:30:00"
+    },
+    "DOS-PRV-000046": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-18T07:30:00"
+    },
+    "DOS-PRV-000047": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-23T15:30:00"
+    },
+    "DOS-PRV-000048": {
+      "step": "SIGNATURE",
+      "status": "EN_COURS",
+      "updated_at": "2026-09-22T15:30:00"
+    },
+    "DOS-PRV-000049": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T09:30:00"
+    },
+    "DOS-PRV-000050": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-23T18:30:00"
+    },
+    "DOS-PRV-000051": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-14T04:30:00"
+    },
+    "DOS-PRV-000052": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-09T14:30:00"
+    },
+    "DOS-PRV-000053": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T02:30:00"
+    },
+    "DOS-PRV-000054": {
+      "step": "IDENTITE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-18T01:30:00"
+    },
+    "DOS-PRV-000055": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-14T07:30:00"
+    },
+    "DOS-PRV-000056": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T13:30:00"
+    },
+    "DOS-PRV-000057": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-12T18:30:00"
+    },
+    "DOS-PRV-000058": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T01:30:00"
+    },
+    "DOS-PRV-000059": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-09T17:30:00"
+    },
+    "DOS-PRV-000060": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-06T18:30:00"
+    },
+    "DOS-PRV-000061": {
+      "step": "SIGNATURE",
+      "status": "EN_ATTENTE",
+      "signature_recue": false,
+      "updated_at": "2026-09-24T08:30:00"
+    },
+    "DOS-PRV-000062": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T06:30:00",
+      "signature_recue": false
+    },
+    "DOS-PRV-000063": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T05:30:00"
+    },
+    "DOS-PRV-000064": {
+      "step": "SIGNATURE",
+      "status": "EN_ATTENTE",
+      "signature_recue": false,
+      "updated_at": "2026-09-26T00:30:00"
+    },
+    "DOS-PRV-000065": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T20:30:00"
+    },
+    "DOS-PRV-000066": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-18T06:30:00"
+    },
+    "DOS-PRV-000067": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T15:30:00"
+    },
+    "DOS-PRV-000068": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T05:30:00",
+      "signature_recue": false
+    },
+    "DOS-PRV-000069": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-14T04:30:00"
+    },
+    "DOS-PRV-000070": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-26T02:30:00"
+    },
+    "DOS-PRV-000071": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T12:30:00"
+    },
+    "DOS-PRV-000072": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T17:30:00"
+    },
+    "DOS-PRV-000073": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-15T19:30:00"
+    },
+    "DOS-PRV-000074": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T18:30:00"
+    },
+    "DOS-PRV-000075": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-20T10:30:00"
+    },
+    "DOS-PRV-000076": {
+      "step": "PROFIL",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-21T01:30:00"
+    },
+    "DOS-PRV-000077": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T14:30:00"
+    },
+    "DOS-PRV-000078": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-23T07:30:00"
+    },
+    "DOS-PRV-000079": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-19T18:30:00"
+    },
+    "DOS-PRV-000080": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T01:30:00"
+    },
+    "DOS-PRV-000081": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-12T21:30:00"
+    },
+    "DOS-PRV-000082": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-23T15:30:00"
+    },
+    "DOS-PRV-000083": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-07T22:30:00"
+    },
+    "DOS-PRV-000084": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-22T12:30:00"
+    },
+    "DOS-PRV-000085": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-21T13:30:00"
+    },
+    "DOS-PRV-000086": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-22T17:30:00"
+    },
+    "DOS-PRV-000087": {
+      "step": "DOCUMENTS",
+      "status": "REJETE",
+      "updated_at": "2026-08-05T10:30:00"
+    },
+    "DOS-PRV-000088": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T18:30:00"
+    },
+    "DOS-PRV-000089": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-19T13:30:00"
+    },
+    "DOS-PRV-000090": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-08T22:30:00"
+    },
+    "DOS-PRV-000091": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T19:30:00"
+    },
+    "DOS-PRV-000092": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T19:30:00"
+    },
+    "DOS-PRV-000093": {
+      "step": "PROFIL",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-14T02:30:00"
+    },
+    "DOS-PRV-000094": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T14:30:00"
+    },
+    "DOS-PRV-000095": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-16T11:30:00"
+    },
+    "DOS-PRV-000096": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-27T16:30:00"
+    },
+    "DOS-PRV-000097": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-09T20:30:00"
+    },
+    "DOS-PRV-000098": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-23T06:30:00"
+    },
+    "DOS-PRV-000099": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-11T21:30:00"
+    },
+    "DOS-PRV-000100": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-07T18:30:00"
+    },
+    "DOS-PRV-000101": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T19:30:00"
+    },
+    "DOS-PRV-000102": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-20T12:30:00"
+    },
+    "DOS-PRV-000104": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T13:30:00"
+    },
+    "DOS-PRV-000105": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-22T09:30:00"
+    },
+    "DOS-PRV-000106": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T16:30:00"
+    },
+    "DOS-PRV-000107": {
+      "step": "SIGNATURE",
+      "status": "EN_ATTENTE",
+      "signature_recue": false,
+      "updated_at": "2026-09-25T06:30:00"
+    },
+    "DOS-PRV-000108": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-26T04:30:00"
+    },
+    "DOS-PRV-000109": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T06:30:00"
+    },
+    "DOS-PRV-000110": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-07T01:30:00"
+    },
+    "DOS-PRV-000111": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-21T21:30:00"
+    },
+    "DOS-PRV-000112": {
+      "step": "SIGNATURE",
+      "status": "EN_COURS",
+      "updated_at": "2026-09-21T05:30:00"
+    },
+    "DOS-PRV-000113": {
+      "step": "ORIENTATION",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-06T20:30:00"
+    },
+    "DOS-PRV-000114": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-24T15:30:00"
+    },
+    "DOS-PRV-000115": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T10:30:00"
+    },
+    "DOS-PRV-000116": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T06:30:00"
+    },
+    "DOS-PRV-000117": {
+      "step": "SIGNATURE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-13T14:30:00"
+    },
+    "DOS-PRV-000118": {
+      "step": "CHOIX_OFFRE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T09:30:00"
+    },
+    "DOS-PRV-000119": {
+      "step": "CHOIX_AGENCE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-25T19:30:00"
+    },
+    "DOS-PRV-000120": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T03:30:00"
+    },
+    "DOS-PRV-000121": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-07T21:30:00"
+    },
+    "DOS-PRV-000122": {
+      "step": "VALIDATION_AGENCE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-26T04:30:00"
+    },
+    "DOS-PRV-000123": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-06T13:30:00"
+    },
+    "DOS-PRV-000124": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-17T16:30:00"
+    },
+    "DOS-PRV-000125": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-18T16:30:00"
+    },
+    "DOS-PRV-000126": {
+      "step": "PROFIL",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-14T15:30:00"
+    },
+    "DOS-PRV-000127": {
+      "step": "IDENTITE",
+      "status": "EN_ATTENTE",
+      "updated_at": "2026-09-08T00:30:00"
+    },
+    "DOS-PRV-000128": {
+      "step": "COORDONNEES",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-20T12:30:00"
+    },
+    "DOS-PRV-000129": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-24T06:30:00"
+    },
+    "DOS-PRV-000130": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-12T12:30:00"
+    },
+    "DOS-PRV-000131": {
+      "step": "PROFIL",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-10T21:30:00"
+    },
+    "DOS-PRV-000132": {
+      "step": "IDENTITE",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-14T04:30:00"
+    },
+    "DOS-PRV-000133": {
+      "step": "DOCUMENTS",
+      "status": "BLOQUE",
+      "updated_at": "2026-09-23T17:30:00"
+    }
+  },
+  "agency_queue": {
+    "AG-1012": {
+      "en_attente": 27,
+      "delai_moyen_h": 24,
+      "sla_heures": 48
+    },
+    "AG-2045": {
+      "en_attente": 24,
+      "delai_moyen_h": 49,
+      "sla_heures": 48
+    },
+    "AG-3301": {
+      "en_attente": 6,
+      "delai_moyen_h": 41,
+      "sla_heures": 48
+    },
+    "AG-4120": {
+      "en_attente": 35,
+      "delai_moyen_h": 49,
+      "sla_heures": 48
+    },
+    "AG-5008": {
+      "en_attente": 35,
+      "delai_moyen_h": 30,
+      "sla_heures": 48
+    }
+  }
+}

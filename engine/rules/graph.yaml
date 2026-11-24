@@ -1,0 +1,480 @@
+# BOUSSOLA — Graphe causal du diagnostic.
+#
+# Chaque nœud est une cause de `contracts/causes.yaml`. Les arêtes sont des
+# FAITS TYPÉS produits de façon déterministe par engine/signals.py, pondérés.
+#
+#   requires  : prérequis durs. Sans eux la cause est IMPOSSIBLE (score = 0).
+#               C'est la barrière anti-hallucination : le modèle ne peut pas
+#               proposer une cause dont les prérequis factuels sont absents.
+#   evidence  : faits qui renforcent la cause, avec leur poids.
+#   inhibits  : faits qui l'affaiblissent (poids négatif).
+#   anchors   : règles du corpus à citer OBLIGATOIREMENT avec cette cause.
+#   remediation : chemin de déblocage, ordonné, avec responsable et délai.
+#
+# Opérateurs de condition : truthy (défaut), ==, !=, >, >=, <, <=, in, non_empty
+version: "1.0.0"
+
+# Seuils de politique (calibrés sur le jeu public, voir eval/calibrate.py)
+thresholds:
+  min_confidence: 0.55          # en dessous → repli sûr
+  ambiguity_margin: 0.12        # écart top1/top2 sous lequel on fait arbitrer le LLM
+  max_causes_returned: 3
+
+nodes:
+  # ======================= F01 ORIENTATION ================================
+  - cause_id: C-ORI-001
+    requires: [ori.relation_active_existante]
+    evidence:
+      - { fact: ori.relation_active_existante, weight: 0.80 }
+      - { fact: step, op: "==", value: ORIENTATION, weight: 0.10 }
+      - { fact: dup.abonnement_actif, weight: 0.10 }
+    anchors: [R-ORI-001, R-GEN-004]
+    remediation:
+      - { action: "Se connecter à l'espace client BNA existant plutôt que de souscrire à nouveau", owner: client, eta_hours: 0, anchors: [R-ORI-001] }
+      - { action: "Demander l'activation des services en ligne depuis l'espace client", owner: client, eta_hours: 1, anchors: [R-ORI-001] }
+    allowed_actions: [rediriger_espace_client]
+    requires_human_validation: false
+
+  - cause_id: C-ORI-002
+    requires: [ori.statut_hors_parcours]
+    evidence:
+      - { fact: ori.statut_hors_parcours, weight: 0.85 }
+      - { fact: offre.pack_pro_demande, weight: 0.15 }
+    anchors: [R-ORI-003, R-GEN-004, R-OFR-006]
+    remediation:
+      - { action: "Prendre rendez-vous en agence pour le parcours « Entrée en relation professionnelle »", owner: client, eta_hours: 48, anchors: [R-ORI-003] }
+    allowed_actions: [proposer_rdv_agence]
+    requires_human_validation: false
+
+  - cause_id: C-ORI-003
+    requires: [ori.dossier_expire]
+    evidence:
+      - { fact: ori.dossier_expire, weight: 0.80 }
+      - { fact: ori.jours_inactivite, op: ">=", value: 30, weight: 0.20 }
+    anchors: [R-GEN-003, R-ORI-004]
+    remediation:
+      - { action: "Ouvrir un nouveau dossier de souscription", owner: client, eta_hours: 1, anchors: [R-ORI-004] }
+      - { action: "Redéposer les pièces justificatives : elles ne sont pas reportées", owner: client, eta_hours: 2, anchors: [R-ORI-004] }
+    allowed_actions: [rouvrir_parcours]
+    requires_human_validation: false
+
+  # ======================= F02 IDENTITÉ ===================================
+  - cause_id: C-IDN-001
+    requires: [ident.piece_expiree]
+    evidence:
+      - { fact: ident.piece_expiree, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-101, weight: 0.20 }
+      - { fact: step, op: "==", value: IDENTITE, weight: 0.10 }
+    anchors: [R-IDN-003, R-GEN-012]
+    remediation:
+      - { action: "Renouveler la pièce d'identité auprès de l'autorité émettrice", owner: client, eta_hours: 168, anchors: [R-IDN-003] }
+      - { action: "Redéposer la pièce renouvelée dans le dossier", owner: client, eta_hours: 1, anchors: [R-DOC-005] }
+    allowed_actions: [redeposer_document]
+    requires_human_validation: false
+
+  - cause_id: C-IDN-002
+    requires: [ident.type_non_accepte]
+    evidence:
+      - { fact: ident.type_non_accepte, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-102, weight: 0.20 }
+      - { fact: ident.cin_absente, weight: 0.10 }
+    anchors: [R-IDN-001, R-IDN-002, R-GEN-012]
+    remediation:
+      - { action: "Déposer la pièce attendue pour votre situation de résidence (CIN pour un résident, passeport pour un non-résident)", owner: client, eta_hours: 2, anchors: [R-IDN-001, R-IDN-002] }
+    allowed_actions: [redeposer_document]
+    requires_human_validation: false
+
+  - cause_id: C-IDN-003
+    requires: [ident.incoherence_formulaire]
+    evidence:
+      - { fact: ident.incoherence_formulaire, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-103, weight: 0.25 }
+    anchors: [R-IDN-004, R-ESC-004]
+    remediation:
+      - { action: "Contrôle en agence de la concordance entre la pièce et le formulaire", owner: agence, eta_hours: 48, anchors: [R-IDN-004] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true   # jamais arbitré automatiquement (R-IDN-004)
+
+  # ======================= F03 COORDONNÉES / OTP ==========================
+  - cause_id: C-OTP-001
+    requires: [otp.max_tentatives_atteint]
+    evidence:
+      - { fact: otp.max_tentatives_atteint, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-201, weight: 0.25 }
+    inhibits:
+      - { fact: otp.verrou_expire, weight: 0.60 }   # R-OTP-003 : verrou levé depuis plus de 30 min
+    anchors: [R-OTP-003, R-FAQ-003]
+    remediation:
+      - { action: "Attendre trente minutes : le verrouillage est temporaire et se lève seul", owner: client, eta_hours: 1, anchors: [R-OTP-003] }
+      - { action: "Redemander un code et le saisir dans les cinq minutes", owner: client, eta_hours: 1, anchors: [R-OTP-004] }
+    allowed_actions: [reessayer_plus_tard]
+    requires_human_validation: false
+
+  - cause_id: C-OTP-002
+    requires: [otp.tel_non_eligible]
+    evidence:
+      - { fact: otp.tel_non_eligible, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-202, weight: 0.20 }
+      - { fact: prospect.non_resident, weight: 0.10 }
+    anchors: [R-OTP-001, R-OTP-002]
+    remediation:
+      - { action: "Déclarer un numéro mobile tunisien (préfixe 2, 4, 5 ou 9)", owner: client, eta_hours: 1, anchors: [R-OTP-001] }
+      - { action: "À défaut, demander la réception du code par courriel", owner: client, eta_hours: 1, anchors: [R-OTP-002] }
+    allowed_actions: [modifier_coordonnees, basculer_otp_email]
+    requires_human_validation: false
+
+  - cause_id: C-OTP-003
+    requires: [otp.email_indisponible]
+    evidence:
+      - { fact: otp.email_indisponible, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-203, weight: 0.30 }
+    anchors: [R-OTP-005, R-DUP-002]
+    remediation:
+      - { action: "Reprendre le dossier existant rattaché à cette adresse, ou déclarer une autre adresse", owner: client, eta_hours: 1, anchors: [R-OTP-005] }
+    allowed_actions: [modifier_coordonnees]
+    requires_human_validation: false
+
+  # ======================= F04 DOCUMENTS ==================================
+  - cause_id: C-DOC-001
+    requires: [doc.manquants]
+    evidence:
+      - { fact: doc.manquants, op: non_empty, weight: 0.65 }
+      - { fact: error_code, op: "==", value: H24-301, weight: 0.25 }
+      - { fact: step, op: "==", value: DOCUMENTS, weight: 0.10 }
+    inhibits:
+      - { fact: doc.illisibles, op: non_empty, weight: 0.15 }
+    anchors: [R-DOC-001, R-DOC-002, R-GEN-014]
+    remediation:
+      - { action: "Déposer la ou les pièces manquantes du socle obligatoire", owner: client, eta_hours: 4, anchors: [R-DOC-001, R-DOC-002] }
+    allowed_actions: [deposer_document]
+    requires_human_validation: false
+
+  - cause_id: C-DOC-002
+    requires: [doc.illisibles]
+    evidence:
+      - { fact: doc.illisibles, op: non_empty, weight: 0.65 }
+      - { fact: error_code, op: "==", value: H24-302, weight: 0.25 }
+      - { fact: doc.ocr_confidence_min, op: "<", value: 0.70, weight: 0.10 }
+    anchors: [R-DOC-004, R-GEN-014]
+    remediation:
+      - { action: "Redéposer la pièce en photographiant le document à plat, bien éclairé, sans reflet", owner: client, eta_hours: 1, anchors: [R-DOC-004, R-DOC-005] }
+    allowed_actions: [redeposer_document]
+    requires_human_validation: false
+
+  - cause_id: C-DOC-003
+    requires: [doc.justif_domicile_trop_ancien]
+    evidence:
+      - { fact: doc.justif_domicile_trop_ancien, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-303, weight: 0.25 }
+    anchors: [R-DOC-003, R-GEN-014]
+    remediation:
+      - { action: "Déposer un justificatif de domicile émis depuis moins de trois mois (STEG, SONEDE, quittance de loyer enregistrée)", owner: client, eta_hours: 24, anchors: [R-DOC-003] }
+    allowed_actions: [deposer_document]
+    requires_human_validation: false
+
+  # ======================= F05 PROFIL =====================================
+  - cause_id: C-PRF-001
+    requires: [prof.champs_manquants]
+    evidence:
+      - { fact: prof.champs_manquants, op: non_empty, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-401, weight: 0.20 }
+      - { fact: step, op: "==", value: PROFIL, weight: 0.10 }
+    anchors: [R-PRF-001]
+    remediation:
+      - { action: "Compléter les champs obligatoires du profil", owner: client, eta_hours: 1, anchors: [R-PRF-001] }
+    allowed_actions: [completer_profil]
+    requires_human_validation: false
+
+  - cause_id: C-PRF-002
+    requires: [prof.revenu_non_justifie]
+    evidence:
+      - { fact: prof.revenu_non_justifie, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-402, weight: 0.30 }
+    anchors: [R-PRF-002, R-DOC-002]
+    remediation:
+      - { action: "Déposer un justificatif de revenu (trois derniers bulletins de paie, attestation de travail, ou titre de pension)", owner: client, eta_hours: 24, anchors: [R-DOC-002, R-PRF-002] }
+    allowed_actions: [deposer_document]
+    requires_human_validation: false
+
+  - cause_id: C-PRF-003
+    requires: [prof.statut_incoherent]
+    evidence:
+      - { fact: prof.statut_incoherent, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-403, weight: 0.25 }
+    anchors: [R-PRF-003, R-ESC-004]
+    remediation:
+      - { action: "Contrôle en agence de la cohérence entre la situation déclarée et les pièces déposées", owner: agence, eta_hours: 48, anchors: [R-PRF-003] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true   # l'assistant ne tranche pas (R-PRF-003)
+
+  # ======================= F06 OFFRE / PROFIL =============================
+  - cause_id: C-OFR-001
+    requires: [offre.condition_residence_non_remplie]
+    evidence:
+      - { fact: offre.condition_residence_non_remplie, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-501, weight: 0.20 }
+      - { fact: step, op: "==", value: CHOIX_OFFRE, weight: 0.10 }
+    inhibits:
+      - { fact: dup.abonnement_actif, weight: 0.25 }   # R-DUP-003 : offre déjà détenue, éligibilité sans objet
+    anchors: [R-OFR-015, R-OFR-011, R-OFR-016, R-GEN-016]
+    remediation:
+      - { action: "Choisir une offre ouverte à votre situation de résidence", owner: client, eta_hours: 1, anchors: [R-OFR-016] }
+    allowed_actions: [changer_offre, proposer_alternatives]
+    requires_human_validation: false
+
+  - cause_id: C-OFR-002
+    requires: [offre.revenu_insuffisant]
+    evidence:
+      - { fact: offre.revenu_insuffisant, weight: 0.65 }
+      - { fact: error_code, op: "==", value: H24-502, weight: 0.25 }
+      - { fact: step, op: "==", value: CHOIX_OFFRE, weight: 0.10 }
+    inhibits:
+      - { fact: prof.revenu_non_justifie, weight: 0.20 }   # justifier d'abord, comparer ensuite
+      - { fact: dup.abonnement_actif, weight: 0.25 }       # R-DUP-003 : offre déjà détenue, éligibilité sans objet
+    anchors: [R-OFR-013, R-OFR-014, R-OFR-016]
+    remediation:
+      - { action: "Choisir une offre sans condition de revenu, ou justifier un revenu atteignant le seuil", owner: client, eta_hours: 24, anchors: [R-OFR-016, R-PRF-002] }
+    allowed_actions: [changer_offre, proposer_alternatives]
+    requires_human_validation: false
+
+  - cause_id: C-OFR-003
+    requires: [offre.age_hors_bornes]
+    evidence:
+      - { fact: offre.age_hors_bornes, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-503, weight: 0.30 }
+    inhibits:
+      - { fact: dup.abonnement_actif, weight: 0.25 }   # R-DUP-003 : offre déjà détenue, éligibilité sans objet
+    anchors: [R-OFR-012, R-OFR-016, R-FAQ-006]
+    remediation:
+      - { action: "Choisir une offre correspondant à votre âge — le pack Prime reste ouvert sans condition de revenu", owner: client, eta_hours: 1, anchors: [R-OFR-011, R-OFR-016] }
+    allowed_actions: [changer_offre, proposer_alternatives]
+    requires_human_validation: false
+
+  - cause_id: C-OFR-004
+    requires: [offre.domiciliation_absente]
+    evidence:
+      - { fact: offre.domiciliation_absente, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-504, weight: 0.30 }
+    inhibits:
+      - { fact: dup.abonnement_actif, weight: 0.25 }   # R-DUP-003 : offre déjà détenue, éligibilité sans objet
+    anchors: [R-OFR-013, R-GLO-006]
+    remediation:
+      - { action: "Accepter l'engagement de domiciliation du salaire, ou choisir une offre qui ne l'exige pas", owner: client, eta_hours: 1, anchors: [R-OFR-013, R-OFR-016] }
+    allowed_actions: [changer_offre, accepter_domiciliation]
+    requires_human_validation: false
+
+  # ======================= F07 DOUBLONS ===================================
+  - cause_id: C-DUP-001
+    requires: [dup.cin_multi_dossiers]
+    evidence:
+      - { fact: dup.cin_multi_dossiers, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-601, weight: 0.30 }
+    anchors: [R-DUP-001, R-DUP-004, R-ESC-004]
+    remediation:
+      - { action: "Rapprochement des deux dossiers par le back-office ; le choix du dossier conservé ne peut être fait ni par le prospect ni par l'assistant", owner: back_office, eta_hours: 48, anchors: [R-DUP-004] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true
+
+  - cause_id: C-DUP-002
+    requires: [dup.coordonnees_utilisees]
+    evidence:
+      - { fact: dup.coordonnees_utilisees, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-602, weight: 0.30 }
+    anchors: [R-DUP-002, R-OTP-005]
+    remediation:
+      - { action: "Reprendre le dossier déjà rattaché à ces coordonnées, ou en déclarer de nouvelles", owner: client, eta_hours: 1, anchors: [R-DUP-002] }
+    allowed_actions: [modifier_coordonnees]
+    requires_human_validation: false
+
+  - cause_id: C-DUP-003
+    requires: [dup.abonnement_actif]
+    evidence:
+      - { fact: dup.abonnement_actif, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-603, weight: 0.30 }
+    anchors: [R-DUP-003, R-ORI-001]
+    remediation:
+      - { action: "Accéder au pack déjà actif depuis l'espace client : une nouvelle souscription est sans objet", owner: client, eta_hours: 0, anchors: [R-DUP-003] }
+    allowed_actions: [rediriger_espace_client]
+    requires_human_validation: false
+
+  # ======================= F08 AGENCE =====================================
+  - cause_id: C-AGC-001
+    requires: [agc.en_file]
+    evidence:
+      - { fact: agc.en_file, weight: 0.55 }
+      - { fact: error_code, op: "==", value: H24-701, weight: 0.25 }
+      - { fact: step, op: "==", value: VALIDATION_AGENCE, weight: 0.20 }
+    inhibits:
+      - { fact: agc.sla_depasse, weight: 0.60 }   # si le délai est dépassé, ce n'est plus « normal »
+    anchors: [R-AGC-002, R-FAQ-002]
+    remediation:
+      - { action: "Aucune action requise : le dossier est dans le délai normal de quarante-huit heures ouvrées", owner: agence, eta_hours: 48, anchors: [R-AGC-002] }
+    allowed_actions: [informer_delai]
+    requires_human_validation: false
+
+  - cause_id: C-AGC-002
+    requires: [agc.sla_depasse]
+    evidence:
+      - { fact: agc.sla_depasse, weight: 0.65 }
+      - { fact: error_code, op: "==", value: H24-702, weight: 0.25 }
+      - { fact: agc.heures_attente, op: ">", value: 48, weight: 0.10 }
+    anchors: [R-AGC-003, R-ESC-004]
+    remediation:
+      - { action: "Relance du responsable d'agence et communication d'un nouveau délai au prospect", owner: agence, eta_hours: 24, anchors: [R-AGC-003] }
+    allowed_actions: [preparer_escalade, informer_delai]
+    requires_human_validation: true
+
+  - cause_id: C-AGC-003
+    requires: [agc.rdv_non_honore]
+    evidence:
+      - { fact: agc.rdv_non_honore, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-703, weight: 0.25 }
+    anchors: [R-AGC-004]
+    remediation:
+      - { action: "Reprendre un rendez-vous en agence dans les quinze jours, faute de quoi le dossier expirera", owner: client, eta_hours: 72, anchors: [R-AGC-004, R-GEN-003] }
+    allowed_actions: [proposer_rdv_agence]
+    requires_human_validation: false
+
+  # ======================= F09 DÉSYNCHRONISATION ==========================
+  - cause_id: C-SYN-001
+    requires: [syn.ecart_referentiels]
+    evidence:
+      - { fact: syn.ecart_referentiels, weight: 0.55 }
+      - { fact: syn.ecart_minutes, op: ">", value: 15, weight: 0.25 }
+      - { fact: error_code, op: "==", value: H24-901, weight: 0.20 }
+    inhibits:
+      - { fact: syn.signature_non_propagee, weight: 0.25 }   # cause plus spécifique
+    anchors: [R-SYN-001, R-SYN-002, R-SYN-004]
+    remediation:
+      - { action: "Escalade à l'exploitation avec les deux états constatés et leurs horodatages ; aucun référentiel n'est présumé correct", owner: back_office, eta_hours: 8, anchors: [R-SYN-004] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true
+
+  - cause_id: C-SYN-002
+    requires: [syn.signature_non_propagee]
+    evidence:
+      - { fact: syn.signature_non_propagee, weight: 0.65 }
+      - { fact: error_code, op: "==", value: H24-902, weight: 0.25 }
+      - { fact: syn.ecart_minutes, op: ">", value: 15, weight: 0.10 }
+    anchors: [R-SYN-003, R-SYN-004, R-ESC-004]
+    remediation:
+      - { action: "Escalade à l'exploitation pour rejouer la propagation de la signature vers le CSA", owner: back_office, eta_hours: 4, anchors: [R-SYN-003] }
+      - { action: "Informer le prospect que le délai de validation ne court pas encore", owner: agence, eta_hours: 1, anchors: [R-FAQ-002] }
+    allowed_actions: [preparer_escalade, informer_delai]
+    requires_human_validation: true
+
+  - cause_id: C-SYN-003
+    requires: [syn.incident_amont]
+    evidence:
+      - { fact: syn.incident_amont, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-903, weight: 0.25 }
+    anchors: [R-GEN-019, R-SYN-004]
+    remediation:
+      - { action: "Escalade à l'exploitation : incident sur un service amont, aucune action du prospect n'est utile", owner: back_office, eta_hours: 4, anchors: [R-SYN-004] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true
+
+  # ======================= F10 MANIPULATION ===============================
+  - cause_id: C-SEC-001
+    requires: [sec.injection_document]
+    evidence:
+      - { fact: sec.injection_document, weight: 0.85 }
+      - { fact: sec.motifs_suspects, op: non_empty, weight: 0.15 }
+    anchors: [R-SEC-004, R-DOC-006, R-ESC-001]
+    remediation:
+      - { action: "Signalement à l'équipe sécurité : le document déposé contient des instructions, son contenu n'est pas exécuté", owner: securite, eta_hours: 2, anchors: [R-SEC-004] }
+      - { action: "Contrôle manuel de la pièce en agence avant toute suite", owner: agence, eta_hours: 48, anchors: [R-DOC-006] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true
+
+  - cause_id: C-SEC-002
+    requires: [sec.injection_message]
+    evidence:
+      - { fact: sec.injection_message, weight: 0.85 }
+      - { fact: sec.motifs_suspects, op: non_empty, weight: 0.15 }
+    anchors: [R-SEC-002, R-SEC-004, R-SEC-006]
+    remediation:
+      - { action: "Rappeler le périmètre de l'assistant sans exposer les consignes internes", owner: securite, eta_hours: 0, anchors: [R-SEC-006] }
+      - { action: "Signalement à l'équipe sécurité", owner: securite, eta_hours: 2, anchors: [R-ESC-001] }
+    allowed_actions: [refuser_et_signaler]
+    requires_human_validation: true
+
+  - cause_id: C-SEC-003
+    requires: [sec.hors_perimetre]
+    evidence:
+      - { fact: sec.hors_perimetre, weight: 0.85 }
+      - { fact: sec.dossier_hors_session, weight: 0.15 }
+    anchors: [R-SEC-003, R-ESC-001]
+    remediation:
+      - { action: "Refus de la demande : une session porte sur un seul dossier", owner: securite, eta_hours: 0, anchors: [R-SEC-003] }
+    allowed_actions: [refuser_et_signaler]
+    requires_human_validation: true
+
+  # ======================= F11 CHOIX DE L'AGENCE ==========================
+  - cause_id: C-AGE-001
+    requires: [age.non_choisie]
+    evidence:
+      - { fact: age.non_choisie, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-801, weight: 0.25 }
+    anchors: [R-AGE-001, R-FAQ-009]
+    remediation:
+      - { action: "Choisir l'agence BNA la plus proche de chez vous : c'est la première étape de la souscription", owner: client, eta_hours: 0, anchors: [R-AGE-001] }
+    allowed_actions: [proposer_choix_agence]
+    requires_human_validation: false
+
+  - cause_id: C-AGE-002
+    requires: [age.fermee]
+    evidence:
+      - { fact: age.fermee, weight: 0.75 }
+      - { fact: error_code, op: "==", value: H24-802, weight: 0.25 }
+    anchors: [R-AGE-002, R-AGE-006]
+    remediation:
+      - { action: "Choisir une autre agence, ouverte : l'agence sélectionnée est temporairement fermée", owner: client, eta_hours: 0, anchors: [R-AGE-002, R-AGE-006] }
+    allowed_actions: [proposer_choix_agence]
+    requires_human_validation: false
+
+  - cause_id: C-AGE-003
+    requires: [age.profil_non_pris_en_charge]
+    evidence:
+      - { fact: age.profil_non_pris_en_charge, weight: 0.75 }
+      - { fact: prospect.non_resident, weight: 0.10 }
+      - { fact: error_code, op: "==", value: H24-803, weight: 0.15 }
+    anchors: [R-AGE-003, R-AGE-006]
+    remediation:
+      - { action: "Choisir une agence qui accueille les clients résidant à l'étranger", owner: client, eta_hours: 0, anchors: [R-AGE-003, R-AGE-006] }
+    allowed_actions: [proposer_choix_agence]
+    requires_human_validation: false
+
+  - cause_id: C-AGE-004
+    requires: [age.code_inconnu]
+    evidence:
+      - { fact: age.code_inconnu, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-804, weight: 0.20 }
+      - { fact: step, op: "==", value: CHOIX_AGENCE, weight: 0.10 }
+    anchors: [R-AGE-004, R-ESC-001]
+    remediation:
+      - { action: "Correction du rattachement par le back-office : le code d'agence du dossier n'existe pas dans le référentiel", owner: back_office, eta_hours: 24, anchors: [R-AGE-004] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true
+
+  - cause_id: C-AGE-005
+    requires: [age.signature_en_agence]
+    evidence:
+      - { fact: age.signature_en_agence, weight: 0.70 }
+      - { fact: error_code, op: "==", value: H24-805, weight: 0.20 }
+      - { fact: step, op: "==", value: SIGNATURE, weight: 0.10 }
+    anchors: [R-AGE-005, R-GEN-005]
+    remediation:
+      - { action: "Finaliser la souscription en vous rendant dans votre agence avec votre pièce d'identité : la signature électronique n'a pas abouti", owner: client, eta_hours: 72, anchors: [R-AGE-005] }
+    allowed_actions: [orienter_signature_agence, proposer_rdv_agence]
+    requires_human_validation: false
+
+  # ======================= REPLI SÛR ======================================
+  - cause_id: C-UNK-000
+    requires: []
+    evidence: []          # jamais scorée par le graphe : produite par la politique
+    anchors: [R-SEC-005, R-ESC-002]
+    remediation:
+      - { action: "Transmettre le dossier à un collaborateur pour qualification manuelle", owner: agence, eta_hours: 24, anchors: [R-SEC-005] }
+    allowed_actions: [preparer_escalade]
+    requires_human_validation: true

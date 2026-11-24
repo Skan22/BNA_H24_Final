@@ -1,0 +1,211 @@
+{
+  "version": "2026.1",
+  "packs": [
+    {
+      "pack_code": "H24-PRIME",
+      "pack_label": "Pack H24 Prime",
+      "cotisation_mensuelle_dt": 5,
+      "conditions": {
+        "residence": [
+          "resident"
+        ],
+        "age_min": 18,
+        "age_max": null,
+        "revenu_min": 0,
+        "statuts": null,
+        "domiciliation_requise": false
+      },
+      "anchors": [
+        "R-OFR-001",
+        "R-OFR-011"
+      ]
+    },
+    {
+      "pack_code": "H24-HELLO-STUDENT",
+      "pack_label": "Pack Hello Student",
+      "cotisation_mensuelle_dt": 2,
+      "conditions": {
+        "residence": [
+          "resident"
+        ],
+        "age_min": 18,
+        "age_max": 30,
+        "revenu_min": 0,
+        "statuts": [
+          "etudiant",
+          "salarie"
+        ],
+        "domiciliation_requise": false
+      },
+      "anchors": [
+        "R-OFR-002",
+        "R-OFR-012"
+      ]
+    },
+    {
+      "pack_code": "H24-PRIME-PLUS",
+      "pack_label": "Pack H24 Prime Plus",
+      "cotisation_mensuelle_dt": 9,
+      "conditions": {
+        "residence": [
+          "resident"
+        ],
+        "age_min": 18,
+        "age_max": null,
+        "revenu_min": 800,
+        "statuts": [
+          "salarie"
+        ],
+        "domiciliation_requise": true
+      },
+      "anchors": [
+        "R-OFR-003",
+        "R-OFR-013"
+      ]
+    },
+    {
+      "pack_code": "H24-PREMIUM",
+      "pack_label": "Pack H24 Premium",
+      "cotisation_mensuelle_dt": 15,
+      "conditions": {
+        "residence": [
+          "resident"
+        ],
+        "age_min": 18,
+        "age_max": null,
+        "revenu_min": 3000,
+        "statuts": null,
+        "domiciliation_requise": false
+      },
+      "anchors": [
+        "R-OFR-004",
+        "R-OFR-014"
+      ]
+    },
+    {
+      "pack_code": "H24-TWENSA",
+      "pack_label": "Pack TWENSA (Tunisiens résidents à l’étranger)",
+      "cotisation_mensuelle_dt": 12,
+      "conditions": {
+        "residence": [
+          "non_resident"
+        ],
+        "age_min": 18,
+        "age_max": null,
+        "revenu_min": 0,
+        "statuts": null,
+        "domiciliation_requise": false
+      },
+      "anchors": [
+        "R-OFR-005",
+        "R-OFR-015"
+      ]
+    },
+    {
+      "pack_code": "H24-PRO",
+      "pack_label": "Pack H24 Pro",
+      "cotisation_mensuelle_dt": 25,
+      "conditions": {
+        "residence": [
+          "resident"
+        ],
+        "age_min": 18,
+        "age_max": null,
+        "revenu_min": 0,
+        "statuts": [
+          "profession_liberale"
+        ],
+        "domiciliation_requise": false
+      },
+      "hors_parcours_particulier": true,
+      "anchors": [
+        "R-OFR-006",
+        "R-ORI-003"
+      ]
+    }
+  ],
+  "documents_requis": {
+    "socle": [
+      "JUSTIFICATIF_DOMICILE",
+      "SPECIMEN_SIGNATURE"
+    ],
+    "par_statut": {
+      "salarie": [
+        "FICHE_PAIE"
+      ],
+      "etudiant": [
+        "CARTE_ETUDIANT"
+      ],
+      "retraite": [
+        "ATTESTATION_TRAVAIL"
+      ],
+      "profession_liberale": [
+        "ATTESTATION_TRAVAIL"
+      ],
+      "sans_emploi": []
+    },
+    "anchors": [
+      "R-DOC-001",
+      "R-DOC-002"
+    ]
+  },
+  "agences": [
+    {
+      "code": "AG-1012",
+      "ville": "Tunis",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-2045",
+      "ville": "Sfax",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-3301",
+      "ville": "Sousse",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-4120",
+      "ville": "Nabeul",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-5008",
+      "ville": "Bizerte",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-6077",
+      "ville": "Kairouan",
+      "statut": "fermee_temporairement",
+      "accueille_non_residents": true,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-7014",
+      "ville": "Gabès",
+      "statut": "ouverte",
+      "accueille_non_residents": false,
+      "signature_electronique": true
+    },
+    {
+      "code": "AG-8023",
+      "ville": "Monastir",
+      "statut": "ouverte",
+      "accueille_non_residents": true,
+      "signature_electronique": false
+    }
+  ],
+  "agences_note": "Référentiel d'agences SYNTHÉTIQUE : codes et situations fictifs, villes à titre d'illustration."
+}

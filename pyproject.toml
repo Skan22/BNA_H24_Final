@@ -1,0 +1,17 @@
+[project]
+name = "bna-h24-boussola"
+version = "2.0.0"
+description = "BNA H24 — assistant de diagnostic des blocages « Devenir client » (moteur déterministe + plateforme sécurisée)"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115", "uvicorn[standard]>=0.30", "httpx>=0.27", "pydantic>=2.7",
+  "pyyaml>=6", "sqlalchemy>=2.0", "anthropic>=0.40",
+]
+[project.optional-dependencies]
+dev = ["pytest>=8", "markdown>=3.6"]
+postgres = ["psycopg[binary]>=3.2"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+package = false
